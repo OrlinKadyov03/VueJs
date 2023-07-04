@@ -1,2 +1,2 @@
 # VueJs
-Application's VueJs
+Exercises that helped me to learn VueJs
