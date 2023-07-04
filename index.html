@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-red{
+            color: red;
+        }
+        .text-green{
+            color: green;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <input v-model="message">
+       {{message}}
+
+       <div>
+        <input v-model="loginForm.userName">
+        <input v-model="loginForm.password">
+        <button v-on:click="submitForm()">Submit</button>
+
+
+        <p>
+            <button v-on:click="show = !show">Toggle</button>
+
+            <span v-if="user">
+               {{user.name}}
+            </span>
+        </p>
+        <p v-if="show">
+            <span v-for="(item,i) in list">
+                <span-component v-bind:item="item" v-bind:i="i" v-on:shout="log(i)"></span-component>
+            </span>
+        </p>
+
+    </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+    Vue.component('span-component',{
+        props: ['item','i'],
+        created(){
+            console.log("component created")
+        },
+        beforeDestroy(){
+            console.log("component destroyed")
+        },
+        methods: {
+            shout(v){
+                this.$emit('shout',{value: v})
+            }
+        },
+        template: "<span v-on:click=\"shout(i)\" v-bind:class=\"{'text-red': item.color === 'red','text-green':item.color === 'green'}\"> {{i}} - {{item.name}}</span>"
+    })
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: "Hello World",
+                    loginForm: {
+                        userName: "",
+                        password: ""
+                    },
+                    list: [
+                      {name :"a - foo",color: 'red'},
+                      {name :"a - john",color: 'red'},
+                      {name :"b - doc",color: 'green'}
+                    ],
+                    show: true,
+                    user: null
+                },
+                created(){
+                    console.log("main created")
+                },
+                mounted(){
+                     console.log("main mounted")
+                },
+                methods: {
+                    submitForm(){
+                        console.log("Submitting login form",this.loginForm)
+
+                        var callLog = () =>{
+                            this.log(this.formInfo)
+                        }
+
+                        callLog()
+                       
+                    },
+                    log(v){
+                        console.log(v)
+                    }
+                },
+                computed: {
+                    formInfo: function(){
+                        return this.loginForm.userName + " " + this.loginForm.password
+                    },
+                    filterlist: function(){
+                       return this.list.filter(x =>{
+                        return x.name.indexOf("a") === 0 
+                       })
+                    }
+                }
+            })     
+    </script>
+</body>
+</html>
