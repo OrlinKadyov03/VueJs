@@ -1,0 +1,52 @@
+[
+    {
+        "id":1,
+        "name": "BMW",
+        "price": 15000,
+        "year":2003,
+        "contact": {
+            "dealer": "Ivo",
+            "number": "0888 123 943"
+        }
+    },
+    {
+        "id":2,
+        "name": "Mercedes",
+        "price": 17000,
+        "year":2005,
+        "contact": {
+            "dealer": "Ivan",
+            "number": "0888 123 832"
+        }
+    },
+    {
+        "id":3,
+        "name": "VW",
+        "price": 10000,
+        "year":2000,
+        "contact": {
+            "dealer": "Ioan",
+            "number": "0888 123 721"
+        }
+    },
+    {
+        "id":4,
+        "name": "Audi",
+        "price": 15000,
+        "year":2004,
+        "contact": {
+            "dealer": "Misho",
+            "number": "0888 123 610"
+        }
+    },
+    {
+        "id":5,
+        "name": "Tesla",
+        "price": 115000,
+        "year":2019,
+        "contact": {
+            "dealer": "Yaku",
+            "number": "0888 123 509"
+        }
+    }
+]
