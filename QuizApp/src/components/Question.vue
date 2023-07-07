@@ -2,7 +2,7 @@
 
 import {defineProps} from "vue"
 
-const {question} = defineProps(['question'])
+const {question} = defineProps(["question"])
 
 </script>
 

@@ -13,15 +13,16 @@ const quiz = quizes.find(q => q.id === quizId)
 
 const currentQuestionIndex = ref(0)
 
-const questionStatus = computed(() => {
-  return `${currentQuestionIndex.value}/${quiz.questions.length}`
-})
+const questionStatus = computed(() => {return `${currentQuestionIndex.value}/${quiz.questions.length}`})
+
+const barPercantage = computed(() =>`${currentQuestionIndex.value/quiz.questions.length * 100}%`)
 </script>
 
 <template>
     <div>
        <QuizHeader
         :questionStatus="questionStatus"
+        :barPercantage="barPercantage"
        />
          <div>
        <Question :question="quiz.questions[currentQuestionIndex]" />
