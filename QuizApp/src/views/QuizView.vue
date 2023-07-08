@@ -4,6 +4,7 @@ import QuizHeader from "../components/QuizHeader.vue"
 import {useRoute}  from "vue-router"
 import {ref,watch,computed} from "vue"
 import quizes from "../data/quizes.json"
+import Result from "../components/Result.vue"
 
 const route = useRoute()
 
@@ -16,6 +17,23 @@ const currentQuestionIndex = ref(0)
 const questionStatus = computed(() => {return `${currentQuestionIndex.value}/${quiz.questions.length}`})
 
 const barPercantage = computed(() =>`${currentQuestionIndex.value/quiz.questions.length * 100}%`)
+
+const NumberOfCorrectAnswers = ref(0)
+
+const showResults = ref(false)
+
+const onOptionSelect = (isCorrect)=>{
+  if(isCorrect) {
+    NumberOfCorrectAnswers.value ++
+  }
+  if(quiz.questions.length - 1 === currentQuestionIndex.value)
+  {
+    showResults.value = true
+  }
+  currentQuestionIndex.value ++ 
+} 
+
+
 </script>
 
 <template>
@@ -25,8 +43,15 @@ const barPercantage = computed(() =>`${currentQuestionIndex.value/quiz.questions
         :barPercantage="barPercantage"
        />
          <div>
-       <Question :question="quiz.questions[currentQuestionIndex]" />
+      <Question
+       v-if="!showResults"
+       :question="quiz.questions[currentQuestionIndex]" 
+       @selectOption="onOptionSelect"
+       />
+       <Result v-else
+       :quizQuestionLength="quiz.questions.length"
+       :NumberOfCorrectAnswers="NumberOfCorrectAnswers"/>
          </div>
-         <button @click="currentQuestionIndex++" >Next Question</button>
     </div>
+
 </template>
