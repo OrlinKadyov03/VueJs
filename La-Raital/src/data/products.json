@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "name":"Lr's Woodl",
+        "model":"Woodlean",
+        "description": "Made of Wood",
+        "price": 13.99
+
+        
+    },
+    {
+        "id":2,
+        "name":"Lr's BimmerL",
+        "model":"BimmerLean",
+        "description": "Made of Bimmer",
+        "price": 12.99
+        
+    },
+    {
+        "id":3,
+        "name":"Lr's StonishL",
+        "model":"StonishLean",
+        "description": "Made of stone",
+        "price": 14.99
+        
+    }
+]
