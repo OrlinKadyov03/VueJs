@@ -18,11 +18,21 @@ const showContact = () => {
 
 
 <template>
-    <div v-if="product">
-        <h1>Product View</h1>
+    <div class="products" v-if="product">
+        <h1>Product Id - {{product.id}}</h1>
         <p>Name: {{product.name}}</p>
-        <p>Price: {{product.price}}</p>
+        <p class="price">Price: {{product.price}}</p>
         <p>Id: {{product.id}}</p>
         <RouterView />
     </div>
 </template>
+
+<style scoped>
+.products{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.price{
+    font-weight: bold;
+}
+</style>
