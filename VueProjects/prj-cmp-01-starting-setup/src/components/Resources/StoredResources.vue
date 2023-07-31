@@ -3,9 +3,11 @@
       <learning-resources
        v-for="res in resources" 
        :key="res.id"
+       :id="res.id"
         :name="res.name"
         :description="res.description"
-        :link="res.link">    
+        :link="res.link"
+        >
       </learning-resources>
    </ul>
 </template>
@@ -18,11 +20,7 @@ export default {
     components:{
      LearningResources
     },
-    props: {
-        resources: {
-          type: String
-        }
-    }
+    inject: ['resources']
 }
 </script>
 
