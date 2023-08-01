@@ -1,13 +1,17 @@
 <template>
     <base-error-alert v-if="isInvalid" name="Invalid input" @close="confirmError">
+
     <template #default>
        <p>Unfortunately at least one is invalid!</p>
        <p>Please enter again the information</p>
     </template>
+
     <template #actions> 
       <base-button @click="confirmError">Okay</base-button>
     </template>
+
    </base-error-alert>
+
     <base-card>
     <h2>Add Resources</h2>
     <form @submit.prevent="sendData">
@@ -28,7 +32,6 @@
         <div>
             <base-button type="submit">Add</base-button>
         </div>
-
     </form>
     </base-card>
 </template>
@@ -64,7 +67,6 @@ export default {
 </script>
 
 <style scoped>
-
 label {
   font-weight: bold;
   display: block;

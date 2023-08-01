@@ -1,9 +1,9 @@
 <template>
    <ul>
       <learning-resources
-       v-for="res in resources" 
-       :key="res.id"
-       :id="res.id"
+        v-for="res in resources" 
+        :key="res.id"
+        :id="res.id"
         :name="res.name"
         :description="res.description"
         :link="res.link"
