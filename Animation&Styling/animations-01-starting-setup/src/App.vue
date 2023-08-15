@@ -3,6 +3,12 @@
     <div class="block" :class="{animate: animationBlock}"></div>
     <button @click="animationStart">Animate</button>
   </div>
+  <div class="container">
+    <transition name="fade-button" mode="out-in">
+    <button @click="showButton" v-if="!activeButton">Show Button</button>
+    <button @click="hideButton" v-else>Hide Button</button>
+    </transition>
+  </div>
   <base-modal @close="hideDialog" :open="dialogIsVisible">
     <p>This is a test dialog!</p>
     <button @click="hideDialog">Close it!</button>
@@ -22,12 +28,19 @@
 export default {
   data() {
     return { 
+      activeButton: false,
       toggleParagraph: false,
       animationBlock: false,
       dialogIsVisible: false
      };
   },
   methods: {
+    hideButton(){
+      this.activeButton = false
+    },
+    showButton(){
+      this.activeButton = true
+    },
     toggleParagraphMethod(){
       this.toggleParagraph = !this.toggleParagraph
     },
@@ -133,6 +146,23 @@ button:active {
     transform: translateX(-150px) scale(1);
   }
   
+}
+
+.fade-button-enter-from,
+.fade-button-leave-to {
+  opacity: 0;
+}
+
+.fade-button-enter-active {
+  transition: opacity 0.3s ease-out;
+}
+.fade-button-leave-active{
+  transition: opacity 0.3s ease-in;
+}
+
+.fade-button-enter-to,
+.fade-button-leave-from {
+  opacity: 1;
 }
 
 </style>
