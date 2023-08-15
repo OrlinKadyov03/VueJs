@@ -1,40 +1,79 @@
 <template>
-  <div class="container">
-    <div class="block" :class="{animate: animationBlock}"></div>
-    <button @click="animationStart">Animate</button>
-  </div>
-  <div class="container">
-    <transition name="fade-button" mode="out-in">
-    <button @click="showButton" v-if="!activeButton">Show Button</button>
-    <button @click="hideButton" v-else>Hide Button</button>
-    </transition>
-  </div>
-  <base-modal @close="hideDialog" :open="dialogIsVisible">
-    <p>This is a test dialog!</p>
-    <button @click="hideDialog">Close it!</button>
-  </base-modal>
-   <div class="container">
-    <transition name="para">
-      <p v-if="toggleParagraph">This paragraph is visible sometimes...</p>
-    </transition>
-    <button @click="toggleParagraphMethod">Toggle paragraph</button>
-   </div>
-  <div class="container">
-    <button @click="showDialog">Show Dialog</button>
-  </div>
+    <router-view v-slot="slotProps">
+      <transition name="fade-button" mode="out-in">
+        <component :is="slotProps.Component"></component>
+      </transition>
+    </router-view>
 </template>  
 
 <script>
+
+
+
 export default {
   data() {
     return { 
       activeButton: false,
       toggleParagraph: false,
       animationBlock: false,
-      dialogIsVisible: false
+      dialogIsVisible: false,
+      enterInterval: null,
+      leaveInterval: null
      };
   },
   methods: {
+    leaveCancelled(el){
+      console.log(el)
+      clearInterval(this.leaveInterval)
+    },
+    enterCancelled(el){
+      console.log(el)
+      clearInterval(this.enterInterval)
+    },
+    afterLeave(el){
+      console.log('After Leave')
+      console.log(el)
+    },
+    leave(el,done){
+      console.log('Leave')
+      console.log(el)
+      let round = 100
+      this.leaveInterval = setInterval(() => {
+        el.style.opacity = round * 0.01
+        round--
+        if(round < 0){
+          clearInterval(this.leaveInterval)
+          done()
+        }
+      }, 20);
+    },
+    beforeLeave(el){
+       console.log('Before Leave')
+       console.log(el)
+       el.style.opacity = 1
+    },
+    afterEnter(el){
+      console.log('After Enter')
+      console.log(el)
+    },
+    enter(el,done){
+      console.log('Enter')
+      console.log(el)
+      let round = 1
+     this.enterInterval = setInterval(() => {
+        el.style.opacity = round * 0.01
+        round++
+        if(round > 100){
+          clearInterval(this.enterInterval)
+          done()
+        }
+      }, 20);
+    },
+    beforeEnter(el){
+       console.log('Before Enter')
+       console.log(el)
+       el.style.opacity = 0
+    },
     hideButton(){
       this.activeButton = false
     },
@@ -99,19 +138,12 @@ button:active {
   border: 2px solid #ccc;
   border-radius: 12px;
 }
-.animate {
- /* transform: translateX(-150px); */
- /*animation: left-slide 1.0s ease-out forwards; */
-}
+
 
 /*.v-enter-from {
   opacity: 0;
   transform: translateY(-50px);
 }*/
-
-.para-enter-active {
-  animation: left-slide 0.5s ease-out;
-}
 
 /*.v-enter-to {
   opacity: 1;
@@ -123,15 +155,22 @@ button:active {
   transform: translateY(0);
 }*/
 
-.para-leave-active {
-  animation: left-slide 0.3s ease-out; 
-}
 
 /*.v-leave-to {
   opacity: 0;
   transform: translateY(-50px);
 }*/
 
+.route-enter-from {}
+.route-enter-active {
+  animation: left-slide 0.4s ease-out;
+}
+.route-enter-to {}
+
+
+.route-leave-active{
+  animation: left-slide 0.4s ease-in;
+}
 @keyframes left-slide {
 
   0% {
@@ -164,5 +203,6 @@ button:active {
 .fade-button-leave-from {
   opacity: 1;
 }
+
 
 </style>
