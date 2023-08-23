@@ -12,6 +12,7 @@
       ></product-item>
     </ul>
   </section>
+  <p></p>
 </template>
 
 <script>
