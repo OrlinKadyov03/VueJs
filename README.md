@@ -1,3 +1,3 @@
 # VueJs
-Learning VueJs,from basic problems to real projects.
+Learning VueJs,from simple to hard projects.
 All files are separated in folders.
