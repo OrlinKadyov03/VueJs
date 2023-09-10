@@ -8,7 +8,7 @@
             <base-badge v-for="track in tracks" :key="track" :type="track" :title="track">{{track}}</base-badge>
         </div>
         <div class="actions">
-            <base-button mode="outline" :to="racerContactLink">Contact</base-button>
+            <base-button mode="outline" link :to="racerContactLink">Contact</base-button>
             <base-button link :to="racerDetailLink">View Details</base-button>
         </div>
     </li>
@@ -24,10 +24,10 @@ export default {
        return this.firstName + ' ' + this.lastName
     },
     racerContactLink(){
-      return this.$route.path + '/' + this.id + '/contact'
+      return `/racers/${this.id}/contact`
     },
     racerDetailLink(){
-      return this.$route.path + '/' + this.id
+      return `/racers/${this.id}/`
     }
     
   },

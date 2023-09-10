@@ -25,15 +25,6 @@ export default {
                 cdescription: 'The car beats an e60 535d with 350hp.',
                 bet: 55
             },
-            {
-              id: 'r3',
-              firstName: 'Viden',
-              lastName: 'Kadyov',
-              tracks: ['k1'],
-              cmodel: 'BMW E60 530D Manual',
-              cdescription: 'The car is stock and runs pretty fast.',
-              bet: 55
-          }
 
         ]
       }

@@ -6,7 +6,7 @@
         <base-card>
         <div class="controls">
             <base-button mode="outline">Refresh</base-button>
-            <base-button link to="/register">Register as racer</base-button>
+            <base-button v-if="!isRacer" link to="/register">Register as racer</base-button>
         </div>
         <ul v-if="hasRacers">
            <racer-item v-for="racer in filteredRacers" :key="racer.id" 
@@ -58,6 +58,9 @@ export default {
         },
         hasRacers(){
             return this.$store.getters['racers/hasRacers']
+        },
+        isRacer(){
+            return this.$store.getters['racers/isRacer']
         }
     },
     methods: {
