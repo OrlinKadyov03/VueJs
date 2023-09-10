@@ -2,7 +2,7 @@
     <header>
         <nav>
             <h1>
-                <router-link to="/">Find a Racer</router-link>
+                <router-link to="/">RaceBg</router-link>
             </h1>
             <ul>
                 <li>

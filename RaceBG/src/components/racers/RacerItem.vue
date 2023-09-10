@@ -1,14 +1,15 @@
 <template>
     <li>
-        <h3>{{ fullName }}</h3>
-        <h4>{{ description }}</h4>
-        <h4>${{ bet }}</h4>
+        <h3>Name: {{ fullName }}</h3>
+        <h4>Car Model: {{ cmodel }}</h4>
+        <h4>Bet: ${{ bet }}</h4>
         <div>
+             <h4>Tracks: </h4>
             <base-badge v-for="track in tracks" :key="track" :type="track" :title="track">{{track}}</base-badge>
         </div>
         <div class="actions">
-            <base-button mode="outline" :to="contactLink">Contact</base-button>
-            <base-button link :to="detailLink">View Details</base-button>
+            <base-button mode="outline" :to="racerContactLink">Contact</base-button>
+            <base-button link :to="racerDetailLink">View Details</base-button>
         </div>
     </li>
 </template>
@@ -17,16 +18,16 @@
 import BaseButton from '../ui/BaseButton.vue'
 export default {
   components: { BaseButton },
-  props: ['id','firstName','lastName','description','tracks','bet'],
+  props: ['id','firstName','lastName','cmodel','tracks','bet'],
   computed:{
     fullName(){
        return this.firstName + ' ' + this.lastName
     },
-    contactLink(){
-        return `/racers/${this.id}/contact`
+    racerContactLink(){
+      return this.$route.path + '/' + this.id + '/contact'
     },
-    detailLink(){
-        return `/racers/${this.id}`
+    racerDetailLink(){
+      return this.$route.path + '/' + this.id
     }
     
   },

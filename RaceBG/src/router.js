@@ -12,7 +12,8 @@ const router = createRouter({
     routes: [
         { path: '/', redirect: '/racers'},
         { path: '/racers',component: RacersList },
-        { path: '/racers/:id',component: RacersDetails,children: [
+        { path: '/racers/:id',component: RacersDetails,
+        props: true,children: [
           { path: 'contact',component: RacersContact} // /racers/r1/contact
         ]},
         { path: '/register',component: RacersRegistration},

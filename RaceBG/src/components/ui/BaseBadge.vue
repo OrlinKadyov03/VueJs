@@ -25,18 +25,18 @@ export default {
   margin-right: 0.5rem;
 }
 
-.Kaloyanovo {
-  background-color: #3d008d;
+.k1 {
+  background-color: darkgoldenrod;
   color: white;
 }
 
-.SaparavenaBanya {
-  background-color: #71008d;
+.s1 {
+  background-color: darkorange;
   color: white;
 }
 
-.Nurburgring {
-  background-color: #8d006e;
+.n1 {
+  background-color: red;
   color: white;
 }
 
