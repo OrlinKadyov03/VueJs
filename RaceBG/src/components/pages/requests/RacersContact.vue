@@ -5,10 +5,22 @@
          <input type="email" id="email" v-model="email">
        </div>
        <div class="form-control">
+         <label for="car">Your Car</label>
+         <input type="text" id="car" v-model="racerCar">
+       </div>
+       <div class="form-control">
+         <label for="model">Your Model</label>
+         <input type="text" id="model" v-model="racerCModel">
+       </div>
+       <div class="form-control">
+         <label for="horsepower">HorsePower</label>
+         <input type="number" id="horsepower" v-model.number="racerHorsePower">
+       </div>
+       <div class="form-control">
          <label for="message">Message</label>
          <textarea rows="5" id="message" v-model="message"></textarea>
        </div>
-       <p class="errors" v-if="!formIsValid">Please enter a valid email and message!</p>
+       <p class="errors" v-if="!formIsValid">Please fill the message form correctly!</p>
        <div class="actions">
           <base-button>Send Message</base-button>
        </div>
@@ -21,6 +33,9 @@ export default {
         return {
             email: '',
             message: '',
+            racerCar: '',
+            racerCModel: '',
+            racerHorsePower:'',
             formIsValid: true
         }
     },
@@ -30,11 +45,26 @@ export default {
            if(this.email === '' || !this.email.includes('@') || this.message === ''){
             this.formIsValid = false
             return
-           }  
+           } 
+           if(this.racerCar === ''){
+            this.formIsValid = false
+            return
+           } 
+           if(this.racerCModel === ''){
+            this.formIsValid = false
+            return
+           }
+           if(!this.racerHorsePower || this.racerHorsePower < 0){
+            this.formIsValid = false
+            return
+           }
             this.$store.dispatch('requests/contactRacer', {
                 email: this.email,
+                racerCar: this.racerCar,
+                racerCModel: this.racerCModel,
+                racerHorsePower: this.racerHorsePower,
                 message: this.message,
-                racerId: this.$route.id
+                racerId: this.$route.params.id
             })
             this.$router.replace('/racers')
         }

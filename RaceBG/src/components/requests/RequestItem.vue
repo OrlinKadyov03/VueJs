@@ -3,13 +3,22 @@
     <div>
         <a :href="emailLink">{{ email }}</a>
     </div>
-    <p>{{ message }}</p>
+    <div>
+      <h5>Brand: {{ racerCar }}</h5>
+    </div>
+    <div>
+       <h5>Model: {{ racerCModel }}</h5>
+    </div>
+    <div>
+      <h5>HorsePower: {{ racerHorsePower }}</h5>
+    </div>
+    <p>Description Car: {{ message }}</p>
  </li>       
 </template>
 
 <script>
 export default {
-  props: ['email','message'],
+  props: ['email','racerCar','racerCModel','racerHorsePower','message'],
   computed: {
     emailLink(){
         return 'mailto:' + this.email
