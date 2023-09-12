@@ -10,15 +10,15 @@
             <input type="text" id="lastname" v-model.trim="lastName.val" @blur="clearValidity('lastName')">
             <p v-if="!lastName.isValid">Lastname must not be empty!</p>
         </div>
-        <div class="form-control" :class="{invalid: !cModel.isValid}">
+        <div class="form-control" :class="{invalid: !cmodel.isValid}">
             <label for="modelofcar">Model of car:</label>
-            <input type="text" id="modelofcar" v-model.trim="cModel.val" @blur="clearValidity('cModel')">
-            <p v-if="!cModel.isValid">Car model must not be empty!</p>
+            <input type="text" id="modelofcar" name="cmodel" v-model.trim="cmodel.val" @blur="clearValidity('cmodel')">
+            <p v-if="!cmodel.isValid">Car model must not be empty!</p>
         </div>
-        <div class="form-control" :class="{invalid: !cDescription.isValid}">
+        <div class="form-control" :class="{invalid: !cdescription.isValid}">
             <label for="descripitonofcar">Description of car:</label>
-            <textarea id="descriptionofcar" rows="5" v-model.trim="cDescription.val" @blur="clearValidity('cDescription')"></textarea>
-            <p v-if="!cDescription.isValid">The description must not be empty!</p>
+            <textarea id="descriptionofcar" rows="5" name="cdescription" v-model.trim="cdescription.val" @blur="clearValidity('cdescription')"></textarea>
+            <p v-if="!cdescription.isValid">The description must not be empty!</p>
         </div>
         <div class="form-control" :class="{invalid: !bet.isValid}">
             <label for="bet">Bet:</label>
@@ -60,11 +60,11 @@ export default {
               val: '',
               isValid: true
             },
-            cModel: {
+            cmodel: {
               val: '',
               isValid: true
             },
-            cDescription:{
+            cdescription:{
               val: '',
               isValid: true
             },
@@ -90,12 +90,12 @@ export default {
             this.lastName.isValid = false
             this.formIsValid = false
            }
-           if(this.cModel.val === ''){
-            this.cModel.isValid = false
+           if(this.cmodel.val === ''){
+            this.cmodel.isValid = false
             this.formIsValid = false
            }
-           if(this.cDescription.val === ''){
-            this.cDescription.isValid = false
+           if(this.cdescription.val === ''){
+            this.cdescription.isValid = false
             this.formIsValid = false
            }
            if(!this.bet.val || this.bet.val < 0){
@@ -117,8 +117,8 @@ export default {
             const formData = {
                 first: this.firstName.val,
                 last: this.lastName.val,
-                carM: this.cModel.val,
-                carD: this.cDescription.val,
+                cmodel: this.cmodel.val,
+                cdescription: this.cdescription.val,
                 bet: this.bet.val,
                 tracks: this.tracks.val
             }

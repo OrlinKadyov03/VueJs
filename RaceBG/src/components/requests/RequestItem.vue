@@ -7,7 +7,7 @@
       <h5>Brand: {{ racerCar }}</h5>
     </div>
     <div>
-       <h5>Model: {{ racerCModel }}</h5>
+       <h5>Model: {{ racerCModel }} </h5>
     </div>
     <div>
       <h5>HorsePower: {{ racerHorsePower }}</h5>

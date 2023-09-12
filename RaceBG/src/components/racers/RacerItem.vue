@@ -18,7 +18,7 @@
 import BaseButton from '../ui/BaseButton.vue'
 export default {
   components: { BaseButton },
-  props: ['id','firstName','lastName','cmodel','tracks','bet'],
+  props: ['id','firstName','lastName','cmodel','cdescription','tracks','bet'],
   computed:{
     fullName(){
        return this.firstName + ' ' + this.lastName
