@@ -6,9 +6,12 @@
         <base-card>
         <div class="controls">
             <base-button mode="outline" @click="loadRacers">Refresh</base-button>
-            <base-button v-if="!isRacer" link to="/register">Register as racer</base-button>
+            <base-button v-if="!isRacer && !isLoading" link to="/register">Register as racer</base-button>
         </div>
-        <ul v-if="hasRacers">
+        <div v-if="isLoading">
+        <base-spinner></base-spinner>
+        </div>
+        <ul v-else-if="hasRacers">
            <racer-item v-for="racer in filteredRacers" :key="racer.id" 
            :id="racer.id"
            :first-name="racer.firstName" 
@@ -33,6 +36,7 @@ export default {
     },
     data() {
         return {
+            isLoading: false,
             activeFilters: {
                 k1: true,
                 s1: true,
@@ -57,7 +61,7 @@ export default {
             })
         },
         hasRacers(){
-            return this.$store.getters['racers/hasRacers']
+            return !this.isLoading && this.$store.getters['racers/hasRacers']
         },
         isRacer(){
             return this.$store.getters['racers/isRacer']
@@ -70,8 +74,10 @@ export default {
         setFilters(updatedFilters) {
            this.activeFilters = updatedFilters
         },
-        loadRacers(){
-            this.$store.dispatch('racers/loadRacers')
+        async loadRacers(){
+            this.isLoading = true
+         await   this.$store.dispatch('racers/loadRacers')
+            this.isLoading = false
         }
     }
 }
