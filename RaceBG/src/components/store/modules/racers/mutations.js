@@ -2,7 +2,7 @@ export default {
     registerRacer(state,payload){
        state.racers.push(payload)
     },
-    setCoaches(state,payload){
+    setRacers(state,payload){
       state.racers=payload
     }
 }
