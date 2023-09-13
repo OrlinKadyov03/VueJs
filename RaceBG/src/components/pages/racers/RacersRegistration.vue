@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <section>
         <base-card>
         <h2>Racers registration</h2>
         <racer-form @save-data="saveData"></racer-form>
         </base-card>
-    </div>
+    </section>
 </template>
 
 <script>

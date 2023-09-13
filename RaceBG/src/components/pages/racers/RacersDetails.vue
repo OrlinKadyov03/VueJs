@@ -1,4 +1,5 @@
 <template>
+  <div>
        <section>
            <base-card>
              <h2>Name - {{ fullName }}</h2>
@@ -22,6 +23,7 @@
                    <p>{{ cdescription }}</p>
             </base-card>
           </section>
+        </div>
 </template>
 
 
