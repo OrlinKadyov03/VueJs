@@ -73,6 +73,7 @@ export default {
     },
     created(){
         this.loadRacers()
+        
     },
     methods: {
         setFilters(updatedFilters) {
@@ -87,7 +88,7 @@ export default {
             }
             this.isLoading = false
         },
-        handleError(){
+        handleError(){        
             this.error = null
         }
     }
