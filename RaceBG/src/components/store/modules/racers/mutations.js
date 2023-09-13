@@ -4,5 +4,8 @@ export default {
     },
     setRacers(state,payload){
       state.racers=payload
+    },
+    setFetchTimestamp(state) {
+      state.lastFetch = new Date().getTime()
     }
 }

@@ -8,7 +8,7 @@
     <section>
         <base-card>
         <div class="controls">
-            <base-button mode="outline" @click="loadRacers">Refresh</base-button>
+            <base-button mode="outline" @click="loadRacers(true)">Refresh</base-button>
             <base-button v-if="!isRacer && !isLoading" link to="/register">Register as racer</base-button>
         </div>
         <div v-if="isLoading">
@@ -72,17 +72,16 @@ export default {
         }
     },
     created(){
-        this.loadRacers()
-        
+        this.loadRacers()     
     },
     methods: {
         setFilters(updatedFilters) {
            this.activeFilters = updatedFilters
         },
-        async loadRacers(){
+        async loadRacers(refresh = false){
             this.isLoading = true
             try {
-                await this.$store.dispatch('racers/loadRacers')
+                await this.$store.dispatch('racers/loadRacers', {forceRefresh: refresh})
             } catch (error) {
                 this.error = error.message || 'Something went wrong!'
             }

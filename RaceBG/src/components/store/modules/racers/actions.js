@@ -27,7 +27,12 @@ export default {
             id: racerId
         })
     },
-   async loadRacers(context){
+   async loadRacers(context,payload){
+
+    if(!payload.forceRefresh && !context.getters.shouldUpdate){
+        return
+    }
+
     const response = await fetch(`https://racebg-f050b-default-rtdb.europe-west1.firebasedatabase.app/racers.json`)
 
     const responseData = await response.json()
@@ -54,4 +59,5 @@ export default {
   }
 
   context.commit('setRacers',racers)
+  context.commit('setFetchTimestamp')
 }}
