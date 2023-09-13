@@ -10,7 +10,7 @@ export default {
             bet: data.bet,
            
         }
-        console.log(racerData)
+
        const response = await fetch(`https://racebg-f050b-default-rtdb.europe-west1.firebasedatabase.app/racers/${racerId}.json`,{
             method: 'PUT',
             body: JSON.stringify(racerData)
@@ -33,7 +33,8 @@ export default {
     const responseData = await response.json()
 
     if(!response.ok) {
-        //
+        const error = new Error(responseData.message || 'Failed to fetch!')
+        throw error
     }
 
     const racers = []

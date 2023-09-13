@@ -1,4 +1,7 @@
 <template>
+    <base-dialog :show="!!error" title="An error occured" @close="handleError">
+      <p>{{ error }}</p>
+    </base-dialog>
     <section>
         <coach-filter @change-filter="setFilters"></coach-filter>
     </section>
@@ -37,6 +40,7 @@ export default {
     data() {
         return {
             isLoading: false,
+            error: null,
             activeFilters: {
                 k1: true,
                 s1: true,
@@ -76,8 +80,15 @@ export default {
         },
         async loadRacers(){
             this.isLoading = true
-         await   this.$store.dispatch('racers/loadRacers')
+            try {
+                await this.$store.dispatch('racers/loadRacers')
+            } catch (error) {
+                this.error = error.message || 'Something went wrong!'
+            }
             this.isLoading = false
+        },
+        handleError(){
+            this.error = null
         }
     }
 }
