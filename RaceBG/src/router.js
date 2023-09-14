@@ -6,6 +6,7 @@ import RacersList from './components/pages/racers/RacersList.vue'
 import RacersRegistration from './components/pages/racers/RacersRegistration.vue'
 import RequestsReceived from './components/pages/requests/RequestsReceived.vue'
 import NotFound from './components/NotFound.vue'
+import UserAuth from './components/pages/auth/UserAuth.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -18,6 +19,7 @@ const router = createRouter({
         ]},
         { path: '/register',component: RacersRegistration},
         { path: '/requests',component: RequestsReceived},
+        { path: '/auth',component: UserAuth },
         { path: '/:notFound(.*)',component: NotFound}
     ]
 })

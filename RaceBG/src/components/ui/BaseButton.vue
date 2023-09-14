@@ -61,7 +61,7 @@ button:active {
 .outline {
   background-color: transparent;
   border-color: darkred;
-  color: black;
+  color: darkred;
 }
 
 .flat:hover,
@@ -69,6 +69,7 @@ button:active {
 .outline:hover,
 .outline:active {
   background-color: darkred;
+  color: white;
 }
 
 </style>
