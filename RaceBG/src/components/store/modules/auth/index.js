@@ -6,7 +6,9 @@ import getters from './getters.js'
 export default {
     state(){
         return {
-            racerId: 'r3'
+            racerId: null,
+            token: null,
+            tokenExpiration: null
         }
     },
     mutations,
