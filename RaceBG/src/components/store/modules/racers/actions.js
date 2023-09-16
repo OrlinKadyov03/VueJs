@@ -11,7 +11,9 @@ export default {
            
         }
 
-       const response = await fetch(`https://racebg-f050b-default-rtdb.europe-west1.firebasedatabase.app/racers/${racerId}.json`,{
+       const token = context.rootGetters.token
+
+       const response = await fetch(`https://racebg-f050b-default-rtdb.europe-west1.firebasedatabase.app/racers/${racerId}.json?auth=` + token,{
             method: 'PUT',
             body: JSON.stringify(racerData)
         }) 
