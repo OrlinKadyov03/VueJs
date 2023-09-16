@@ -7,6 +7,7 @@ import RacersRegistration from './components/pages/racers/RacersRegistration.vue
 import RequestsReceived from './components/pages/requests/RequestsReceived.vue'
 import NotFound from './components/NotFound.vue'
 import UserAuth from './components/pages/auth/UserAuth.vue'
+import store from './components/store/index.js'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,11 +18,22 @@ const router = createRouter({
         props: true,children: [
           { path: 'contact',component: RacersContact} // /racers/r1/contact
         ]},
-        { path: '/register',component: RacersRegistration},
-        { path: '/requests',component: RequestsReceived},
-        { path: '/auth',component: UserAuth },
+        { path: '/register',component: RacersRegistration, meta: {requiresAuth: true}},
+        { path: '/requests',component: RequestsReceived,  meta: {requiresAuth: true}},
+        { path: '/auth',component: UserAuth,  meta: {requiresUnauth: true} },
         { path: '/:notFound(.*)',component: NotFound}
     ]
+})
+
+
+router.beforeEach(function(to,_,next){
+  if(to.meta.requiresAuth && !store.getters.isAuthenticated ){
+    next('/auth')
+  } else if(to.meta.requiresUnauth && store.getters.isAuthenticated) {
+    next('/racers')
+  } else {
+    next()
+  }
 })
 
 export default router
