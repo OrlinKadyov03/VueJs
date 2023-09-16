@@ -14,7 +14,7 @@ export default {
 
         if(!response.ok){
             console.log(responseData)
-            const error = new Error(responseData.message || 'Failed to fetch requests.')
+            const error = new Error(responseData.message || 'Failed to authenticate. The email already exists!')
             throw error
         }
     
