@@ -10,7 +10,8 @@
         <base-card>
         <div class="controls">
             <base-button mode="outline" @click="loadRacers(true)">Refresh</base-button>
-            <base-button v-if="!isRacer && !isLoading" link to="/register">Register as racer</base-button>
+            <base-button link to="/auth" v-if="!isLoggedIn">LogIn</base-button>
+            <base-button v-if="isLoggedIn && !isRacer && !isLoading" link to="/register">Register as racer</base-button>
         </div>
         <div v-if="isLoading">
         <base-spinner></base-spinner>
@@ -71,6 +72,9 @@ export default {
         },
         isRacer(){
             return this.$store.getters['racers/isRacer']
+        },
+        isLoggedIn(){
+            return this.$store.getters.isAuthenticated
         }
     },
     created(){

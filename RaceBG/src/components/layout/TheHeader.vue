@@ -8,14 +8,26 @@
                 <li>
                     <router-link to="/racers">Racers</router-link>
                 </li>
-                <li>
+                <li v-if="isLoggedIn">
                     <router-link to="/requests">Requests</router-link>
+                </li>
+                <li v-else>
+                  <router-link to="/auth">LogIn</router-link>
                 </li>
             </ul>
         </nav>
     </header>
 </template>
 
+<script>
+export default {
+   computed: {
+    isLoggedIn(){
+      return this.$store.getters.isAuthenticated
+    }
+   }
+}
+</script>
 
 <style scoped>
 header {
