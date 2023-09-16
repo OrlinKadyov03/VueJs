@@ -49,5 +49,12 @@ export default {
             racerId: responseData.localId,
             tokenExpiration: responseData.expiresIn
         })
+    },
+    logout(context){
+       context.commit('setRacer',{
+         token: null,
+         racerId: null,
+         tokenExpiration: null
+       })
     }
 }
