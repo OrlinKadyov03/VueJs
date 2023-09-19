@@ -1,14 +1,21 @@
 import { createRouter,createWebHistory } from 'vue-router'
+import { defineAsyncComponent } from 'vue'
 
-import RacersContact from './components/pages/requests/RacersContact.vue'
-import RacersDetails from './components/pages/racers/RacersDetails.vue'
+//import RacersContact from './components/pages/requests/RacersContact.vue'
+//import RacersDetails from './components/pages/racers/RacersDetails.vue'
 import RacersList from './components/pages/racers/RacersList.vue'
-import RacersRegistration from './components/pages/racers/RacersRegistration.vue'
-import RequestsReceived from './components/pages/requests/RequestsReceived.vue'
+//import RacersRegistration from './components/pages/racers/RacersRegistration.vue'
+//import RequestsReceived from './components/pages/requests/RequestsReceived.vue'
 import NotFound from './components/NotFound.vue'
-import UserAuth from './components/pages/auth/UserAuth.vue'
+//import UserAuth from './components/pages/auth/UserAuth.vue'
 import store from './components/store/index.js'
 import RacerAbout from './components/racers/RacerAbout.vue'
+
+const RacersDetails = defineAsyncComponent(() => import('./components/pages/racers/RacersDetails.vue'))
+const RacersRegistration = defineAsyncComponent(() => import('./components/pages/racers/RacersRegistration.vue'))
+const RacersContact = defineAsyncComponent(() => import('./components/pages/requests/RacersContact.vue'))
+const RequestsReceived = defineAsyncComponent(() => import('./components/pages/requests/RequestsReceived.vue'))
+const UserAuth = defineAsyncComponent(() => import('./components/pages/auth/UserAuth.vue'))
 
 const router = createRouter({
     history: createWebHistory(),
