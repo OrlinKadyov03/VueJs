@@ -8,6 +8,7 @@ import RequestsReceived from './components/pages/requests/RequestsReceived.vue'
 import NotFound from './components/NotFound.vue'
 import UserAuth from './components/pages/auth/UserAuth.vue'
 import store from './components/store/index.js'
+import RacerAbout from './components/racers/RacerAbout.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -21,7 +22,8 @@ const router = createRouter({
         { path: '/register',component: RacersRegistration, meta: {requiresAuth: true}},
         { path: '/requests',component: RequestsReceived,  meta: {requiresAuth: true}},
         { path: '/auth',component: UserAuth,  meta: {requiresUnauth: true} },
-        { path: '/:notFound(.*)',component: NotFound}
+        { path: '/:notFound(.*)',component: NotFound},
+        { path: '/about',component: RacerAbout }
     ]
 })
 
