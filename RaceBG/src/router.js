@@ -1,5 +1,4 @@
 import { createRouter,createWebHistory } from 'vue-router'
-import { defineAsyncComponent } from 'vue'
 
 //import RacersContact from './components/pages/requests/RacersContact.vue'
 //import RacersDetails from './components/pages/racers/RacersDetails.vue'
