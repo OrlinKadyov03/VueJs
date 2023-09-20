@@ -11,11 +11,11 @@ import NotFound from './components/NotFound.vue'
 import store from './components/store/index.js'
 import RacerAbout from './components/racers/RacerAbout.vue'
 
-const RacersDetails = defineAsyncComponent(() => import('./components/pages/racers/RacersDetails.vue'))
-const RacersRegistration = defineAsyncComponent(() => import('./components/pages/racers/RacersRegistration.vue'))
-const RacersContact = defineAsyncComponent(() => import('./components/pages/requests/RacersContact.vue'))
-const RequestsReceived = defineAsyncComponent(() => import('./components/pages/requests/RequestsReceived.vue'))
-const UserAuth = defineAsyncComponent(() => import('./components/pages/auth/UserAuth.vue'))
+const RacersDetails = () => import('./components/pages/racers/RacersDetails.vue')
+const RacersRegistration = () => import('./components/pages/racers/RacersRegistration.vue')
+const RacersContact = () => import('./components/pages/requests/RacersContact.vue')
+const RequestsReceived = () => import('./components/pages/requests/RequestsReceived.vue')
+const UserAuth = () => import('./components/pages/auth/UserAuth.vue')
 
 const router = createRouter({
     history: createWebHistory(),
