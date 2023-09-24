@@ -1,10 +1,10 @@
 import { createRouter,createWebHistory } from "vue-router";
-import PortHome from './components/ports/PortHome.vue'
+import PortHome from './components/PortHome.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        {path: '/', component: PortHome}
+        { path: '/home', component: PortHome }
     ]
 })
 
