@@ -28,6 +28,7 @@ html {
 
 body {
   margin: 0;
-  background-color: white;
+  background-color: rgb(152, 135, 135);
+  opacity: 1;
 }
 </style>

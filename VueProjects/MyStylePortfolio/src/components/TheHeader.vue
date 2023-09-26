@@ -16,7 +16,7 @@
 header {
   width: 100%;
   height: 5rem;
-  background-color:purple;
+  background-color:rgb(145, 17, 145);
   display: flex;
   justify-content: center;
   align-items: center;
