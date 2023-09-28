@@ -28,7 +28,10 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(152, 135, 135);
-  opacity: 1;
+  background-image: url("./back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(8px);
+  padding: 50px;
 }
 </style>
