@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <h2 class="name">Hello, my name is {{ name }}</h2>
         <h3 class="portfolio">Welcome to my portfolio</h3>
         <p class="desc">I'm a Junior Developer. Working with Object Oriented Programming language - C#.</p>
@@ -27,27 +27,27 @@ export default {
 .name {
   text-align: center;
   position: relative;
-  right: 395px;
+  right: 485px;
   top: 120px;
   color: rgb(188, 167, 167);
 }
 .portfolio {
     text-align: center;
     position: relative;
-    right: 395px;
+    right: 570px;
     top: 110px;
     color: rgb(188, 167, 167);
 }
 
 .cv {
     position: relative;
-    left: 280px;
-    top: 130px;
+    left: 20px;
+    top: 140px;
     border-radius: 12px;
     border: none;
     font-weight: bold;
     height: 40px;
-    width: 120px; 
+    width: 140px; 
     background-color: rgb(205, 17, 89);
     color: white;
     font-family:Arial, Helvetica, sans-serif;
@@ -65,7 +65,7 @@ export default {
 
 .descTwo {
     position: relative;
-    left: 50px;
+    left: 20px;
     top: 120px;
     margin-top: -10px;
     color: rgb(188, 167, 167);
@@ -78,7 +78,7 @@ html {
 img {
   max-height: 20%;
   max-width: 20%;
-  margin-left: 1100px;
+  margin-left: 1000px;
   margin-top: -95px;
   border-radius: 15px;
 }
