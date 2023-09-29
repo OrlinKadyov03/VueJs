@@ -8,6 +8,15 @@
             I am so dedicated to my work,i give my best to any work regarding this field. 
             I have mastered programming languages such as - C#,JAVASCRIPT,VueJs,HTML,ASP.Net.</p>
         </div>
+        <div class="card">
+          <h4 class="education">Education: </h4>
+          <h5 class="pS">Primary Education:</h5>
+          <h6 class="hS">High School "Vasil Levski"</h6>
+          <h5 class="pS">Secondary Education:</h5>
+          <h6 class="hS">High School "Vasil Levski"</h6>
+          <h5 class="pS">High-Level Education:</h5>
+          <h6 class="hS">PU "Paisii Hilendarski"</h6>
+        </div>
             <div class="personal-info padd-15">
               <div class="row">
                 <div class="info-item padd-15">
@@ -53,9 +62,10 @@
 
 .aboutDesc {
     position: relative;
-    left: 10px;
+    left: -100px;
     top: -45px;
     color: rgb(188, 167, 167);;
+    font-size: 20px;
 }
 
 .divTwo {
@@ -68,8 +78,8 @@
 
 .personal-info {
     position: relative;
-    top: -120px;
-    left: 20px;
+    top: -220px;
+    left: 15px;
 }
 
 .info-item  .pColor  {
@@ -81,42 +91,58 @@
     max-width: 30rem;
     position: relative;
     left: -370px;
-    top: -20px;
+    top: -270px;
 }
 
-.buttons {
-  padding: 0.75rem 1.5rem;
+a {
+  padding: 0.65rem 1.5rem;
   font: inherit;
   background-color:  rgb(205, 17, 89);
   border: 1px solid  rgb(205, 17, 89);
   color: white;
   cursor: pointer;
   border-radius: 30px;
-  margin-right: 0.5rem;
-  display: inline-block;
+  margin-right: 1rem;
+  display: inline;
   position: relative;
   left: 270px;
 }
-
-a:hover,
-a:active,
-button:hover,
-button:active {
-  padding: 0.25rem 1rem;
-  font: inherit;
-  cursor: pointer;
-  border-radius: 10px;
-  margin-right: 0rem;
-  display: inline-block;
-}
-
 .hide {
     text-decoration: none;
-    color: white;
-
+    color: rgb(188, 167, 167);
+    top: -70px;
 }
 
+a:hover,
+a:active { 
+  border-color: rgb(255, 8, 95);
+  background-color: rgb(255, 8, 95);
+  color: white;
+}
 
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 40rem;
+  position: relative;
+  top: -125px;
+  left: 360px;
+}
+.education {
+    color: white;
+}
+
+.pS {
+  color: rgb(24, 93, 149);
+  font-size: bold;
+}
+
+.hS {
+   color: white;
+   font-size: bold;
+}
 
 
 </style>

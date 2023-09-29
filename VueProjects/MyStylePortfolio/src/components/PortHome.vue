@@ -49,7 +49,7 @@ export default {
     height: 40px;
     width: 140px; 
     background-color: rgb(205, 17, 89);
-    color: white;
+    color: rgb(188, 167, 167);
     font-family:Arial, Helvetica, sans-serif;
     cursor: pointer;
 }
@@ -60,6 +60,7 @@ export default {
     top: 120px;
     margin-top: 10px;
     color: rgb(188, 167, 167);
+    font-size: 20px;
 }
 
 
@@ -69,6 +70,7 @@ export default {
     top: 120px;
     margin-top: -10px;
     color: rgb(188, 167, 167);
+    font-size: 20px;
 }
 html {
   background-color: black;
@@ -81,6 +83,13 @@ img {
   margin-left: 1000px;
   margin-top: -95px;
   border-radius: 15px;
+}
+
+button:hover,
+button:active { 
+  border-color: rgb(255, 8, 95);
+  background-color: rgb(255, 8, 95);
+  color: white;
 }
 
 
