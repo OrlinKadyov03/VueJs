@@ -1,12 +1,12 @@
 <template>
     <div class="divTwo">
         <h1 class="about">About Me</h1>
-        <p class="aboutDesc">I have been studying HTML,CSS,C#,ASP.NET CORE for 3 + years. 
-            I want to perform as a front-end developer. 
-            I'm in the process of gaining more and more experiences at the moment. 
-            I have done a lot of course-work. 
-            I am so dedicated to my work,i give my best to any work regarding this field. 
-            I have mastered programming languages such as - C#,JAVASCRIPT,VueJs,HTML,ASP.Net.</p>
+        <p class="aboutDesc">I have been studying C#,ASP.Net,HTML,CSS,My SQL for 3 + years.
+            Javascript,VueJs,BootStrap Library for 6 months. Firebase too.
+            I'm in the process of gaining more and more experiences at the moment.
+            Have a lot's of course work done, you can check it in my Github Account,with 
+            description and everything you need to see and understand how the code is written.
+        </p>
         </div>
         <div class="card">
           <h4 class="education">Education: </h4>
@@ -44,41 +44,52 @@
                     <p class="pColor">Freelance : <span>Available</span></p>
                 </div>
             </div>
+            <div class="container">
+                <h3 class="review" >You like my review ?</h3>
+                <h3 class="review">Then you can</h3>
+            </div>
             <div>
                 <div class="buttons">
                     <router-link to="/contact" class="hide">Hire me</router-link>
+                </div>
+                <div class="iTwo">
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-github"></i>
+                    <i class="bi bi-twitter"></i>
                 </div>
             </div>
         </div>
 </template>
 
 <style scoped>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 .about {
     position: relative;
-    left: 10px;
-    top: -75px;
+    left: 70px;
+    top: 15px;
     color: white;
 }
 
 .aboutDesc {
     position: relative;
-    left: -100px;
-    top: -45px;
+    left: 10px;
+    top: 45px;
     color: rgb(188, 167, 167);;
     font-size: 20px;
 }
 
 .divTwo {
-  margin: 0;
+  margin: 10px;
   background-size: cover;
   background-repeat: no-repeat;
   backdrop-filter: blur(8px);
-  padding: 110px;
+  padding: 20px;
 }
 
 .personal-info {
     position: relative;
-    top: -220px;
+    top: -50px;
     left: 15px;
 }
 
@@ -87,15 +98,15 @@
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     padding: 1rem;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     max-width: 30rem;
     position: relative;
     left: -370px;
-    top: -270px;
+    top: -250px;
 }
 
 a {
-  padding: 0.65rem 1.5rem;
+  padding: 0.75rem 2.5rem;
   font: inherit;
   background-color:  rgb(205, 17, 89);
   border: 1px solid  rgb(205, 17, 89);
@@ -110,6 +121,7 @@ a {
 .hide {
     text-decoration: none;
     color: rgb(188, 167, 167);
+    left: 640px;
     top: -70px;
 }
 
@@ -127,7 +139,7 @@ a:active {
   margin: 2rem auto;
   max-width: 40rem;
   position: relative;
-  top: -125px;
+  top: 95px;
   left: 360px;
 }
 .education {
@@ -137,11 +149,27 @@ a:active {
 .pS {
   color: rgb(24, 93, 149);
   font-size: bold;
+  font-size: 15px;
 }
 
 .hS {
    color: white;
    font-size: bold;
+   font-size: 12px;
+}
+
+.review {
+ text-align: center;
+ padding: 0;
+ top: -90px;
+ position: relative;
+ color: white;
+}
+
+.iTwo {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 
