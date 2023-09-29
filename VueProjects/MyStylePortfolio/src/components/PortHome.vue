@@ -4,7 +4,7 @@
         <h3 class="portfolio">Welcome to my portfolio</h3>
         <p class="desc">I'm a Junior Developer. Working with Object Oriented Programming language - C#.</p>
         <p class="descTwo">Javascript,VueJs,HTML,CSS,SASS,BootStrap,ASP.NET and more.</p>
-        <button class="cv">Download CV</button>
+        <a class="cv" href="" attributes-list download="Orlin's CV">Download CV</a>
     </div>
     <div>
      <img src="../../src/me.jpg" alt="Me" />
@@ -40,6 +40,8 @@ export default {
 }
 
 .cv {
+    text-decoration: none;
+    padding: 0.75rem 2.5rem;
     position: relative;
     left: 20px;
     top: 140px;
@@ -85,8 +87,8 @@ img {
   border-radius: 15px;
 }
 
-button:hover,
-button:active { 
+a:hover,
+a:active { 
   border-color: rgb(255, 8, 95);
   background-color: rgb(255, 8, 95);
   color: white;
