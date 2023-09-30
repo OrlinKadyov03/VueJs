@@ -1,9 +1,44 @@
 <template>
     <div>
+        <div class="service-item padd-15">
+            <div class="service-item-inner">
+                <div class="icon">
+                <i class="fa fa-mobile-alt"></i>
+                </div>
+                <h4 class="specialty">Call me</h4>
+                <p class="helping">0885624814</p>
+            </div>
+        </div>
+        <div class="service-item padd-15">
+            <div class="service-item-inner">
+                <div class="icon">
+                 <i class="fa fa-map-marker-alt"></i>
+                </div>
+                <h4 class="specialty">Location</h4>
+                <p class="helping">Velingrad</p>
+            </div>
+        </div>
+        <div class="service-item padd-15">
+            <div class="service-item-inner">
+                <div class="icon">
+                 <i class="fa fa-envelope"></i>
+                </div>
+                <h4 class="specialty">Email</h4>
+                <p class="helping">orlin221@abv.bg</p>
+            </div>
+        </div>
+        <div class="service-item padd-15">
+            <div class="service-item-inner">
+                <div class="icon">
+                 <i class="fa fa-globe-europe"></i>
+                </div>
+                <h4 class="specialty">Website</h4>
+                <p class="helping">Orlin.Com</p>
+            </div>
+        </div>
        <section>
         <div><h2 class="sendEmail">Send me an E-mail</h2></div>
          <form @submit.prevent="sendInfo" class="forms">
-            <h3 v-if="!formIsValid">Fill the form correctly</h3>
           <div class="firstName">
            <input type="text" v-model.trim="firstName" placeholder="FirstName" id="firstname">
           </div>
@@ -20,6 +55,8 @@
            <textarea v-model.trim="message" placeholder="Message" id="message"></textarea>
           </div>
           <button class="btn">Send</button>
+          <h3 v-if="!formIsValid" class="incorrect">Fill the form correctly!</h3>
+          <h3 v-if="hasSubmitted" class="submitted">You have submitted the form successfully!</h3>
          </form>
        </section> 
     </div>
@@ -34,7 +71,8 @@ export default {
               email: '',
               subject: '',
               message: '',
-              formIsValid: true
+              formIsValid: true,
+              hasSubmitted: false
         }
     },
     methods: {
@@ -45,7 +83,8 @@ export default {
             if(!this.formIsValid){
               return
             }
-
+  
+            this.hasSubmitted = true
             console.log('FirstName:', this.firstName);
             console.log('LastName:', this.lastName);
             console.log('Email:', this.email);
@@ -76,8 +115,12 @@ export default {
             if(this.message === ''){
                 this.formIsValid = false
             }
+
+            setTimeout(() => {
+                this.hasSubmitted = false
+            }, 3000);
         }
-    }
+    },
 }
 </script>
 
@@ -92,7 +135,7 @@ input {
     border-radius: 10px;
     display: flex;
     position: relative;
-    top: 5px;
+    top: -505px;
     font-size: 16px;
 }
 
@@ -129,7 +172,7 @@ input:focus {
     justify-content: center;
     align-items: center; 
     position: relative;
-    top: 20px;
+    top: -480px;
     font-size: 16px;
 }
 
@@ -139,7 +182,7 @@ input:focus {
     margin: 0;
     position: relative;
     left: 655px;
-    top: 45px;
+    top: -455px;
     padding: 0.75rem 2.5rem;
     font: inherit;
     background-color:  rgb(205, 17, 89);
@@ -156,7 +199,7 @@ input:focus {
     text-align: center;
     color: rgb(176, 160, 160);
     position: relative;
-    top: 5px;
+    top: -535px;
     font-size: 25px;
     font-weight: bold;
 }
@@ -166,5 +209,34 @@ input:focus {
     border-color: rgb(255, 8, 95);
     background-color: rgb(255, 8, 95);
 }
+
+.incorrect {
+    color: red;
+    text-align: center;
+    position: relative;
+    top: -450px;
+}
+
+.submitted {
+    font-size: 20px;
+    color: aqua;
+    text-align: center;
+    position: relative;
+    top: -450px;
+}
+
+.service-item {
+        color: white;
+        border-radius: 1px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        padding: 0.2rem;
+        max-width: 20%; 
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        top: 50px;
+        margin-bottom: 24px;
+    }
+
 
 </style>
