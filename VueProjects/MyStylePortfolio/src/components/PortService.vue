@@ -1,5 +1,5 @@
 <template>
-
+<div>
  <div class="container">
     <div class="row">
         <div class="section-title padd-15">
@@ -62,6 +62,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </template>
 

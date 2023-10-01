@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div>
         <h2 class="name">Hello, my name is {{ name }}</h2>
         <h3 class="portfolio">Welcome to my portfolio</h3>
@@ -9,6 +10,7 @@
     <div>
      <img src="../../src/me.jpg" alt="Me" />
     </div>
+  </div>
 </template> 
 
 

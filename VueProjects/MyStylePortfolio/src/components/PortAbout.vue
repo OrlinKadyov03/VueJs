@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div class="divTwo">
         <h1 class="about">About Me</h1>
         <p class="aboutDesc">I have been studying C#,ASP.Net,HTML,CSS,My SQL for 3 + years.
@@ -62,6 +63,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </template>
 
 <script>

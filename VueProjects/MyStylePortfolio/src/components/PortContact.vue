@@ -115,6 +115,11 @@ export default {
             setTimeout(() => {
                 this.hasSubmitted = false
             }, 3000);
+        },
+        resizeTextarea() {
+      const textarea = this.$refs.messageTextarea; // Reference to the textarea element
+      textarea.style.height = "auto"; // Reset the height to auto
+      textarea.style.height = textarea.scrollHeight + "px"; // Set the height to match the scroll height
         }
     },
 }
@@ -253,7 +258,15 @@ i {
 }
 
 
-
+.message textarea {
+  width: 30%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 14px;
+  min-height: 50px; /* Set a minimum height */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+}
 
 
 </style>
