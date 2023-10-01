@@ -1,15 +1,6 @@
 <template>
     <div>
-        <div class="service-item padd-15">
-            <div class="service-item-inner">
-                <div class="icon">
-                <i class="fa fa-mobile-alt"></i>
-                </div>
-                <h4 class="specialty">Call me</h4>
-                <p class="helping">0885624814</p>
-            </div>
-        </div>
-        <div class="service-item padd-15">
+        <div class="row">
             <div class="service-item-inner">
                 <div class="icon">
                  <i class="fa fa-map-marker-alt"></i>
@@ -17,8 +8,13 @@
                 <h4 class="specialty">Location</h4>
                 <p class="helping">Velingrad</p>
             </div>
-        </div>
-        <div class="service-item padd-15">
+            <div class="service-item-inner">
+                <div class="icon">
+                <i class="fa fa-mobile-alt"></i>
+                </div>
+                <h4 class="specialty">Call me</h4>
+                <p class="helping">0885624814</p>
+            </div>
             <div class="service-item-inner">
                 <div class="icon">
                  <i class="fa fa-envelope"></i>
@@ -26,8 +22,6 @@
                 <h4 class="specialty">Email</h4>
                 <p class="helping">orlin221@abv.bg</p>
             </div>
-        </div>
-        <div class="service-item padd-15">
             <div class="service-item-inner">
                 <div class="icon">
                  <i class="fa fa-globe-europe"></i>
@@ -59,6 +53,14 @@
           <h3 v-if="hasSubmitted" class="submitted">You have submitted the form successfully!</h3>
          </form>
        </section> 
+       <div class="iTwo">
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-github"></i>
+                    <i class="bi bi-twitter"></i>
+                    <i class="bi bi-google"></i>
+                    <i class="bi bi-linkedin"></i>
+        </div>
     </div>
 </template>
 
@@ -79,18 +81,12 @@ export default {
         sendInfo() {
             this.validateForm()
 
-            
             if(!this.formIsValid){
               return
             }
   
             this.hasSubmitted = true
-            console.log('FirstName:', this.firstName);
-            console.log('LastName:', this.lastName);
-            console.log('Email:', this.email);
-            console.log('Subject:', this.subject);
-            console.log('Message:', this.message);
-            console.log('Sent');
+            console.log('sent')
             this.firstName = ''
             this.lastName = ''
             this.email = ''
@@ -135,7 +131,7 @@ input {
     border-radius: 10px;
     display: flex;
     position: relative;
-    top: -505px;
+    top: -20px;
     font-size: 16px;
 }
 
@@ -172,7 +168,7 @@ input:focus {
     justify-content: center;
     align-items: center; 
     position: relative;
-    top: -480px;
+    top: -5px;
     font-size: 16px;
 }
 
@@ -182,7 +178,7 @@ input:focus {
     margin: 0;
     position: relative;
     left: 655px;
-    top: -455px;
+    top: 10px;
     padding: 0.75rem 2.5rem;
     font: inherit;
     background-color:  rgb(205, 17, 89);
@@ -199,7 +195,7 @@ input:focus {
     text-align: center;
     color: rgb(176, 160, 160);
     position: relative;
-    top: -535px;
+    top: -15px;
     font-size: 25px;
     font-weight: bold;
 }
@@ -214,7 +210,7 @@ input:focus {
     color: red;
     text-align: center;
     position: relative;
-    top: -450px;
+    top: 0px;
 }
 
 .submitted {
@@ -222,21 +218,42 @@ input:focus {
     color: aqua;
     text-align: center;
     position: relative;
-    top: -450px;
+    top: 0px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    position: relative;
+    justify-content: center;
 }
 
-.service-item {
-        color: white;
-        border-radius: 1px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-        padding: 0.2rem;
-        max-width: 20%; 
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        top: 50px;
-        margin-bottom: 24px;
-    }
+.service-item-inner {
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    border-spacing: 5px 1rem;
+    flex: 0 0 50%;
+    max-width: 20%;
+    font-weight: bold;
+}
+
+i {
+    color: rgb(255, 0, 217);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.specialty {
+    color: white;
+}
+.helping { 
+    color: white;
+}
+
+
+
 
 
 </style>
