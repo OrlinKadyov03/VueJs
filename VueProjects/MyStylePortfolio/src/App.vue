@@ -2,7 +2,7 @@
   <div>
     <the-header></the-header>
     <router-view v-slot="slotProps">
-        <transition name="route" mode="out-in">
+        <transition name="route" mode="ease-in">
           <component :is="slotProps.Component"></component>
         </transition>
     </router-view>
@@ -38,22 +38,21 @@ body {
   backdrop-filter: blur(8px);
   padding: 50px;
 }
-
 .route-enter-from {
   opacity: 0;
-  transform: translateY(-30px);
+  transform: translateY(-70px);
 }
 .route-leave-to {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(80px);
 }
 
 .route-enter-active{
- transition: all 0.3s ease-out;
+ transition: all 1s ease;
 }
 
 .route-leave-active{
-  transition: all 0.3s ease-in
+  transition: all 0.5s ease-out
 }
 
 .route-enter-to,
@@ -61,5 +60,4 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
 </style>
