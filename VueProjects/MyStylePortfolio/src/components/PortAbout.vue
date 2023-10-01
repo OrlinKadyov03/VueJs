@@ -1,7 +1,7 @@
 <template>
     <div>
     <div class="divTwo">
-        <h1 class="about">About Me</h1>
+        <h2 class="about">About Me</h2>
         <p class="aboutDesc">I have been studying C#,ASP.Net,HTML,CSS,My SQL for 3 + years.
             Javascript,VueJs,BootStrap Library for 6 months. Firebase too.
             I'm in the process of gaining more and more experiences at the moment.
@@ -90,14 +90,14 @@ export default {
 .about {
     position: relative;
     left: 70px;
-    top: 15px;
+    top: -25px;
     color: white;
 }
 
 .aboutDesc {
     position: relative;
     left: 10px;
-    top: 45px;
+    top: -25px;
     color: rgb(188, 167, 167);
     font-size: 20px;
 }
@@ -112,7 +112,7 @@ export default {
 
 .personal-info {
     position: relative;
-    top: -50px;
+    top: -120px;
     left: 15px;
 }
 
@@ -163,7 +163,7 @@ a:active {
   margin: 1.5rem auto;
   max-width: 30rem;
   position: relative;
-  top: 80px;
+  top: 10px;
   left: 360px;
 }
 .education {
