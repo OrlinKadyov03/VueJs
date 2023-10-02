@@ -250,6 +250,12 @@ i {
     font-weight: bold;
 }
 
+.iTwo {
+    display: flex;
+    gap: 10px;
+}
+
+
 .specialty {
     color: white;
 }
