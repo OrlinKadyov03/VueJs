@@ -46,7 +46,7 @@ export default {
     padding: 0.75rem 2.5rem;
     position: relative;
     left: 20px;
-    top: 140px;
+    top: 141px;
     border-radius: 12px;
     border: none;
     font-weight: bold;
