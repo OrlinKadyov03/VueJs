@@ -1,6 +1,73 @@
 <template>
-    <div>
-        <h3>NavBar</h3>
-        <h4><router-link to="/home">Home</router-link></h4>
-    </div>
+    <header>
+        <nav>
+            <h1 class="headOne">
+                <router-link to="/home">MobileO</router-link>
+            </h1>
+            <ul>
+                <li>
+                    <router-link to="/home">Home</router-link>
+                </li>
+            </ul>
+        </nav>
+    </header>
 </template>
+
+
+<style scoped>
+header {
+  width: 100%;
+  height: 4rem;
+  background-color:rgb(245, 97, 33);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header a {
+  text-decoration: none;
+  color:white;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+}
+a:active,
+a:hover,
+a.router-link-active {
+    border: 2px solid black;
+}
+h1 {
+  margin: 0;
+}
+h1 a {
+  color: white;
+  margin: 0;
+}
+h1 a:hover,
+h1 a:active,
+h1 a.router-link-active {
+  border-color: transparent;
+}
+header nav {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+li {
+  margin: 0 0.5rem;
+}
+.headOne {
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+</style>

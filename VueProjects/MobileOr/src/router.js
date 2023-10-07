@@ -4,7 +4,7 @@ import HomeComponent from './components/HomeComponent.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        {path: '/home', component: HomeComponent},
+        {path: '/home', component: HomeComponent}
     ]
 })
 
