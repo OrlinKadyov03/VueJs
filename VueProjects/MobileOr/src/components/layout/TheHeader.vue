@@ -33,7 +33,7 @@ header a {
 a:active,
 a:hover,
 a.router-link-active {
-    border: 2px solid black;
+    border: 1px solid green;
 }
 h1 {
   margin: 0;

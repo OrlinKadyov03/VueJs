@@ -1,13 +1,16 @@
 <template>
   <the-header></the-header>
+  <form-short></form-short>
   <router-view></router-view>
 </template>
 
 <script>
+import FormShort from './components/FormShort.vue'
 import TheHeader from './components/layout/TheHeader.vue'
 export default {
   components:{
-     TheHeader
+     TheHeader,
+     FormShort
   }
 }
 </script>
