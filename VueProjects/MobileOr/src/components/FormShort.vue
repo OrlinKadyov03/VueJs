@@ -3,7 +3,7 @@
    <form>
             <tr>
                 <td>
-                    <p>Основна Категория</p>
+                    <p>Category</p>
                     <select id="category" name="category">
                         <option value="cars">All</option>
                     </select>
@@ -12,55 +12,55 @@
 
             <tr>
                 <td>
-                    <p>Марка:</p>
+                    <p>Brand:</p>
                     <select id="brand" name="brand"></select>
                 </td>
                 <td>
-                    <p>Модел:</p>
+                    <p>Model:</p>
                     <select id="model" name="model"></select>
                 </td>
                 <td>
-                    <p>Регион:</p>
+                    <p>Region:</p>
                     <select id="region" name="region"></select>
                 </td>
                 <td>
-                    <p>Град:</p>
+                    <p>City:</p>
                     <select id="city" name="city"></select>
                 </td>
             </tr>
             
             <tr>
                 <td>
-                    <p>Максимална цена:</p>
+                    <p>Max Price:</p>
                     <input type="text" id="max-price" name="max-price">
                 </td>
                 <td>
-                    <p>Година:</p>
+                    <p>Year:</p>
                     <select id="year" name="year"></select>
                 </td>
                 <td>
-                    <p>Резултати:</p>
+                    <p>Results:</p>
                     <select id="sort-by" name="sort-by">
-                        <option value="brand-model-price">Марка/Модел/Цена</option>
-                        <option value="engine">Двигател</option>
-                        <option value="transmission">Скоростна кутия</option>
+                        <option value="brand-model-price">Brand/Model/Price</option>
+                        <option value="engine">Engine</option>
+                        <option value="transmission">Gearbox</option>
                     </select>
                 </td>
             </tr>
             
             <tr>
                 <td>
-                    <p>Тип двигател:</p>
+                    <p>Type:</p>
                     <select name="engines" id="id">
                         <option value="diesel">Diesel</option>
                         <option value="petrol">Petrol</option>
                     </select>
                 </td>
                 <td>
-                    <p>Тип скоростна кутия:</p>
+                    <p>Gearbox Type:</p>
                     <select id="gearbox-type" name="gearbox-type">
-                        <option value="manual">Ръчна скоростна кутия</option>
-                        <option value="automatic">Автоматична скоростна кутия</option>
+                        <option value="manual">Manual</option>
+                        <option value="automatic">Automatic</option>
                     </select>
                 </td>
             </tr>
