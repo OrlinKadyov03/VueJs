@@ -6,11 +6,12 @@
 
 <style scoped>
 .card {
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0px 4px rgb(30, 115, 211);
   padding: 1rem;
   margin: 2rem auto;
-  max-width: 65rem;
+  max-width: 40rem;
+  margin-left: 250px;
+  margin-top:  150px;
 }
 
 </style>

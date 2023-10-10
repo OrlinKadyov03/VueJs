@@ -2,11 +2,11 @@
     <header>
         <nav>
             <h1 class="headOne">
-                <router-link to="/home">MobileO</router-link>
+                <router-link to="/">MobileO</router-link>
             </h1>
             <ul>
                 <li>
-                    <router-link to="/home">Home</router-link>
+                    <router-link to="/publication">Publication</router-link>
                 </li>
             </ul>
         </nav>
@@ -18,7 +18,7 @@
 header {
   width: 100%;
   height: 4rem;
-  background-color:rgb(245, 97, 33);
+  background-color:rgb(30, 115, 211);
   display: flex;
   justify-content: center;
   align-items: center;
