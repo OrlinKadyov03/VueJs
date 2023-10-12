@@ -1,9 +1,10 @@
 <template>
+    <base-card>
     <section>Filter</section>
     <section>
         <div class="controls">
-            <button>Refresh</button>
-            <router-link to="/register">Register as Trainer</router-link>
+            <base-button mode="outline">Refresh</base-button>
+            <base-button link to="/register">Register as Trainer</base-button>
         </div>
         <ul v-if="hasTrainers"> 
             <trainers-item v-for="trainer in filteredTrainers" :key="trainer.id" :id="trainer.id"
@@ -14,13 +15,16 @@
         </ul>
         <p v-else>No Coaches</p>
     </section>
+</base-card>
 </template>
 
 <script>
+import BaseButton from '@/components/ui/BaseButton.vue'
 import TrainersItem from '../../components/trainers/TrainersItem.vue'
 export default {
     components: {
-        TrainersItem
+        TrainersItem,
+        BaseButton
     },
     computed: {
         filteredTrainers(){
@@ -32,3 +36,16 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
