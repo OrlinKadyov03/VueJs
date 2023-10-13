@@ -11,7 +11,8 @@ const router = createRouter({
     routes: [
        {path: '/',redirect: '/trainers'},
        {path: '/trainers',component: TrainersList},
-       {path: '/trainers/:id',component: TrainersDetails,children: [
+       {path: '/trainers/:id',component: TrainersDetails,
+       props:true,children: [
          { path: 'contact',component: TrainersContact } //trainer/tID/contact
        ]},
        {path: '/register',component: TrainersRegister},
