@@ -5,6 +5,16 @@ import trainersModule from './modules/trainers/index.js'
 const store = createStore({
     modules: {
         trainers: trainersModule
+    },
+    data(){
+        return {
+            userId: 't3'
+        }
+    },
+    getters: {
+        userId(state){
+            return state.userId
+        }
     }
 })
 

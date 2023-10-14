@@ -1,7 +1,7 @@
 export default {
    registerTrainer(context,data){
     const formData = {
-        id: 't3',
+        id: context.rootGetters.userId,
         firstName: data.first,
         lastName: data.last,
         areas: data.areas,

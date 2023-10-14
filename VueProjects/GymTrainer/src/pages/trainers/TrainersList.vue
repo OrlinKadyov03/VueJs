@@ -8,7 +8,7 @@
         <base-card>
         <div class="controls">
             <base-button mode="outline">Refresh</base-button>
-            <base-button link to="/register">Register as Trainer</base-button>
+            <base-button v-if="!isTrainer" link to="/register">Register as Trainer</base-button>
         </div>
         <ul v-if="hasTrainers"> 
             <trainers-item v-for="trainer in filteredTrainers" :key="trainer.id" :id="trainer.id"
@@ -42,6 +42,9 @@ export default {
         }
     },
     computed: {
+        isTrainer(){
+           return this.$store.getters['trainers/isTrainer']
+        },
         filteredTrainers(){
             const trainers =  this.$store.getters['trainers/trainers']
             return trainers.filter(trainer => {
