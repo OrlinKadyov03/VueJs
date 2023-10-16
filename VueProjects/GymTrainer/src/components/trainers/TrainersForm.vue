@@ -2,7 +2,7 @@
         <form @submit.prevent="submitForm">
         <div class="form-control" :class="{invalid: !firstName.isValid}">
             <label for="firstName">FirstName</label>
-            <input type="text" id="FirstName" v-model.trim="firstName.val" >
+            <input type="text" id="firstName" v-model.trim="firstName.val" >
             <p v-if="!firstName.isValid">Firstname must not be empty!</p>
         </div>
         <div class="form-control" :class="{invalid: !lastName.isValid}" >
@@ -36,6 +36,7 @@
             </div>
             <p v-if="!areas.isValid">Please select one of the areas!</p>    
         </div>
+        <p v-if="!formIsValid">Please fill the missing inputs</p>
         <base-button>Register</base-button>
     </form>
 </template>
@@ -66,7 +67,7 @@ export default {
                 val: [],
                 isValid: true
             },
-            formIsValid: false
+            formIsValid: true
 
         }
     },
@@ -105,11 +106,11 @@ export default {
 
 
            const formData = {
-            first: this.firstName,
-            last: this.lastName,
-            desc: this.description,
-            rate: this.hourlyRate,
-            areas: this.areas
+            first: this.firstName.val,
+            last: this.lastName.val,
+            desc: this.description.val,
+            rate: this.hourlyRate.val,
+            areas: this.areas.val
            }
 
            this.$emit('save-data', formData)

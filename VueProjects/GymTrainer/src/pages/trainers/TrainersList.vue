@@ -1,8 +1,6 @@
 <template>
     <section>
-         <trainers-filter @change-filter="setFilters">
-
-         </trainers-filter>
+         <trainers-filter @change-filter="setFilters"></trainers-filter>
     </section>
     <section>
         <base-card>
@@ -46,7 +44,7 @@ export default {
            return this.$store.getters['trainers/isTrainer']
         },
         filteredTrainers(){
-            const trainers =  this.$store.getters['trainers/trainers']
+            const trainers = this.$store.getters['trainers/trainers']
             return trainers.filter(trainer => {
                 if(this.activeFilters.mentally && trainer.areas.includes('mentally')){
                   return true

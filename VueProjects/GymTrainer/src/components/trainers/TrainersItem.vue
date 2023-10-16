@@ -13,19 +13,17 @@
 </template>
 
 <script>
-import BaseButton from '../ui/BaseButton.vue';
 export default {
-  components: { BaseButton },
-    props: ['id','firstName','lastName','rate','areas'],
+    props: ['id','firstName','lastName','rate','areas','description'],
     computed: {
         fullName(){
             return this.firstName + ' ' + this.lastName;
         },
         linkToContact(){
-            return this.$route.path + '/' + this.id + '/contact'
+            return  `/trainers/${this.id}/contact` 
         },
         linkToDetails(){
-            return this.$route.path + '/' + this.id
+            return `/trainers/${this.id}/`
         }
     }
 }

@@ -1,6 +1,6 @@
 export default {
    registerTrainer(context,data){
-    const formData = {
+    const trainerData = {
         id: context.rootGetters.userId,
         firstName: data.first,
         lastName: data.last,
@@ -8,7 +8,7 @@ export default {
         description: data.desc,
         hourlyRate: data.rate,
     }
-    context.commit('registerTrainer', formData)
+    context.commit('registerTrainer', trainerData)
 
   }
 }

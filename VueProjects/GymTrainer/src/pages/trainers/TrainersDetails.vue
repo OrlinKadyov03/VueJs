@@ -1,23 +1,26 @@
 <template>
     <div>
-   <section>
-     <base-card>
-       <h3>{{ fullName }}</h3>
-       <h4>${{ rate }}/hour</h4>
-     </base-card>
-   </section>
-   <section>
-    <base-card>
-     <h3>Interested? Reach out now!</h3>
-     <base-button link :to="contactLink">Contact</base-button>
-    </base-card>
-   </section>
-   <section>
-    <base-card>
-     <base-badge v-for="area in selectedTrainer.areas" :key="area" :type="area" :title="area"></base-badge>
-     <p>{{ description }}</p>
-    </base-card>
-   </section>
+      <section>
+        <base-card>
+          <h3>{{ fullName }}</h3>
+          <h4>${{ rate }}/hour</h4>
+        </base-card>
+      </section>
+      <section>
+          <base-card>
+            <header>
+              <h3>Interested? Reach out now!</h3>
+              <base-button link :to="contactLink">Contact</base-button>
+            </header>
+          <router-view></router-view>
+          </base-card>
+      </section>
+      <section>
+          <base-card>
+            <base-badge v-for="area in selectedTrainer.areas" :key="area" :type="area" :title="area">{{ areas }}</base-badge>
+            <p>{{ description }}</p>
+          </base-card>
+      </section>
 </div>
 </template>
 
@@ -37,7 +40,7 @@ export default {
         return this.selectedTrainer.hourlyRate
       },
       contactLink(){
-        return this.$route.path + '/' + this.id + '/contact'
+        return `/trainers/${this.id}/contact`
       },
       description(){
         return this.selectedTrainer.description
@@ -48,7 +51,7 @@ export default {
     },
     created() {
         this.selectedTrainer = this.$store.getters['trainers/trainers'].find(
-            (trainer) => trainer.id === this.id
+            trainer => trainer.id === this.id
         )
     }
 }

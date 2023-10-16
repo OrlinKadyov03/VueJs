@@ -6,7 +6,7 @@ const store = createStore({
     modules: {
         trainers: trainersModule
     },
-    data(){
+    state(){
         return {
             userId: 't3'
         }

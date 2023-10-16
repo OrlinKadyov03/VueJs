@@ -2,15 +2,15 @@
      <base-card>
         <h2>Find your Trainer</h2>
         <span class="filter-option">
-          <input type="checkbox" id="mentally" checked @change="setFilters">
+          <input type="checkbox" id="mentally" @change="setFilters" checked>
           <label for="mentally">Mentally</label>
         </span>
         <span class="filter-option">
-          <input type="checkbox" id="physically" checked @change="setFilters">
+          <input type="checkbox" id="physically" @change="setFilters" checked>
           <label for="physically">Physically</label>
         </span>
         <span class="filter-option">
-          <input type="checkbox" id="healthy" checked @change="setFilters">
+          <input type="checkbox" id="healthy" @change="setFilters" checked>
           <label for="healthy">Healthy</label>
         </span>
       </base-card>
