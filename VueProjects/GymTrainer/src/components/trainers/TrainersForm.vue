@@ -2,36 +2,36 @@
         <form @submit.prevent="submitForm">
         <div class="form-control" :class="{invalid: !firstName.isValid}">
             <label for="firstName">FirstName</label>
-            <input type="text" id="firstName" v-model.trim="firstName.val" >
+            <input type="text" id="firstName" v-model.trim="firstName.val" @blur="clearValidity('firstName')" >
             <p v-if="!firstName.isValid">Firstname must not be empty!</p>
         </div>
         <div class="form-control" :class="{invalid: !lastName.isValid}" >
             <label for="lastName">LastName</label>
-            <input type="text" id="lastName" v-model.trim="lastName.val">
+            <input type="text" id="lastName" v-model.trim="lastName.val" @blur="clearValidity('lastName')">
             <p v-if="!lastName.isValid">Lastname must not be empty!</p>
         </div>
         <div class="form-control" :class="{invalid: !description.isValid}" >
             <label for="description">Description</label>
-            <textarea id="description" rows="5" v-model.trim="description.val"></textarea>
+            <textarea id="description" rows="5" v-model.trim="description.val" @blur="clearValidity('description')"></textarea>
             <p v-if="!description.isValid">Description must not be empty!</p>
         </div>
         <div class="form-control" :class="{invalid: !hourlyRate.isValid}" >
             <label for="hourlyRate">Hourly Rate</label>
-            <input type="number" id="hourlyRate" v-model.number="hourlyRate.val">
+            <input type="number" id="hourlyRate" v-model.number="hourlyRate.val" @blur="clearValidity('hourlyRate')">
             <p v-if="!hourlyRate.isValid"></p>
         </div>
         <div class="form-control" :class="{invalid: !areas.isValid}">
             <h3>Areas of Expertise</h3>
             <div>
-              <input type="checkbox" id="mentally" value="mentally" v-model="areas.val">
+              <input type="checkbox" id="mentally" value="mentally" v-model="areas.val" @blur="clearValidity('areas')">
               <label for="mentally">Mentally</label>
             </div>
             <div>
-                <input type="checkbox" id="physically" value="physically" v-model="areas.val" >
+                <input type="checkbox" id="physically" value="physically" v-model="areas.val" @blur="clearValidity('areas')" >
                 <label for="physically">Physically</label>
             </div>
             <div>
-                <input type="checkbox" id="healthy" value="healthy" v-model="areas.val">
+                <input type="checkbox" id="healthy" value="healthy" v-model="areas.val" @blur="clearValidity('areas')">
                 <label for="healthy">Healthy</label>
             </div>
             <p v-if="!areas.isValid">Please select one of the areas!</p>    
@@ -72,6 +72,9 @@ export default {
         }
     },
     methods: {
+        clearValidity(input){
+         this[input].isValid = true
+        },
         validateForm(){
             this.formIsValid = true
             if(this.firstName.val === ''){
