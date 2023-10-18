@@ -10,6 +10,16 @@
    </section>
 </template>
 
+<script>
+export default {
+   computed: {
+    requestsReceived(){
+        
+    }
+   }
+}
+</script>
+
 <style scoped>
 header {
   text-align: center;

@@ -33,6 +33,14 @@ export default {
                 this.formIsValid = false
                 return
             }
+
+            this.$store.dispatch('requests/contactTrainer' ,{
+              email: this.email,
+              message: this.message,
+              trainerId: this.$route.params.id
+            })
+
+            this.$router.replace('/trainers')
         }
     }
 }
