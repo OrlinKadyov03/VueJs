@@ -1,5 +1,5 @@
 export default {
-    requests(state){
+    requests(state,getters,rootState,rootGetters){
        return state.requests
     },
     hasRequests(state){
