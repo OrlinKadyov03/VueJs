@@ -24,6 +24,30 @@ export default {
       ...trainerData,
       id: userId
     })
+  },
+  async loadTrainers(context){
+    const response = await fetch(`https://gymcoach-a8d73-default-rtdb.europe-west1.firebasedatabase.app/trainers.json`)
+    const responseData = await response.json()
 
+    if(!response.ok){
+      //error
+    }
+
+    const trainers = []
+
+    for(const key in responseData) {
+      const trainer = {
+        id: key,
+        firstName: responseData[key].firstName,
+        lastName: responseData[key].lastName,
+        areas: responseData[key].areas,
+        description: responseData[key].description,
+        hourlyRate: responseData[key].hourlyRate,
+      }
+      trainers.push(trainer)
+    }
+
+    context.commit('setTrainers',trainers)
   }
+  
 }
