@@ -6,9 +6,12 @@
         <base-card>
         <div class="controls">
             <base-button mode="outline" @click="loadTrainers">Refresh</base-button>
-            <base-button v-if="!isTrainer" link to="/register">Register as Trainer</base-button>
+            <base-button v-if="!isTrainer && !isLoading" link to="/register">Register as Trainer</base-button>
         </div>
-        <ul v-if="hasTrainers"> 
+        <div v-if="isLoading">
+            <base-spinner></base-spinner>
+        </div>
+        <ul v-else-if="hasTrainers"> 
             <trainers-item v-for="trainer in filteredTrainers" :key="trainer.id" :id="trainer.id"
             :first-name="trainer.firstName"
             :last-name="trainer.lastName"
@@ -36,7 +39,8 @@ export default {
                 mentally: true,
                 physically: true,
                 healthy: true
-            }
+            },
+            isLoading: false
         }
     },
     computed: {
@@ -60,7 +64,7 @@ export default {
 
         },
         hasTrainers(){
-            return this.$store.getters['trainers/hasTrainers']
+            return !this.isLoading && this.$store.getters['trainers/hasTrainers']
         }
     },
     created(){
@@ -70,8 +74,10 @@ export default {
         setFilters(updatedFilters){
           this.activeFilters = updatedFilters
         },
-        loadTrainers(){
-            this.$store.dispatch('trainers/loadTrainers')
+       async loadTrainers(){
+            this.isLoading = true
+          await this.$store.dispatch('trainers/loadTrainers')
+            this.isLoading = false
         }
     },
 }
