@@ -40,7 +40,8 @@ export default {
                 physically: true,
                 healthy: true
             },
-            isLoading: false
+            isLoading: false,
+            error: null
         }
     },
     computed: {
@@ -76,7 +77,11 @@ export default {
         },
        async loadTrainers(){
             this.isLoading = true
-          await this.$store.dispatch('trainers/loadTrainers')
+            try {
+                await this.$store.dispatch('trainers/loadTrainers')
+            } catch (error) {
+               this.error = error.message || 'Something went wrong!'
+            }
             this.isLoading = false
         }
     },
