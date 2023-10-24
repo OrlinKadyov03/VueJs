@@ -4,6 +4,9 @@ export default {
     },
     setTrainers(state,payload){
         state.trainers = payload
+    },
+    setFetchTimeStamp(state){
+        state.lastFetch = new Date().getTime()
     }
     
 }

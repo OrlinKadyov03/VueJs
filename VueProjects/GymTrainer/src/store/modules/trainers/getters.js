@@ -9,5 +9,14 @@ export default {
       const trainers = getters.trainers
       const userId = rootGetters.userId
       return trainers.some(trainer => trainer.id === userId)
+    },
+    shouldUpdate(state){
+        const lastFetch = state.lastFetch
+        if(!lastFetch){
+            return true
+        }
+        const currentTimeStamp = new Date().getTime()
+        return (currentTimeStamp - lastFetch) / 1000 > 60
+
     }
 }
