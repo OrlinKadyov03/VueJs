@@ -21,7 +21,7 @@
             <p>{{ description }}</p>
           </base-card>
       </section>
-</div>
+     </div>
 </template>
 
 <script> 

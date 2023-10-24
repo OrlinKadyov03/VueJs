@@ -1,19 +1,21 @@
 <template>
-      <base-dialog :show="!!error" title="An error occured" @close="handleError">
-    <p>{{ error }}</p>
-    </base-dialog>
-   <section>
-    <base-card>
-          <header>
-        <h2>Requests Received</h2>
-          </header>
-          <base-spinner v-if="isLoading"></base-spinner>
-        <ul v-else-if="hasRequests && !isLoading">
-           <requests-item v-for="req in requestsReceived" :key="req.id" :email="req.userEmail" :message="req.message"></requests-item>
-        </ul>
-     <h3 v-else>You doesn't have any requests till now!</h3>
-   </base-card>
-   </section>
+   <div>
+    <base-dialog :show="!!error" title="An error occurred" @close="handleError">
+        <p>{{ error }}</p>
+        </base-dialog>
+      <section>
+        <base-card>
+              <header>
+            <h2>Requests Received</h2>
+              </header>
+              <base-spinner v-if="isLoading"></base-spinner>
+            <ul v-else-if="hasRequests && !isLoading">
+              <requests-item v-for="req in requestsReceived" :key="req.id" :email="req.userEmail" :message="req.message"></requests-item>
+            </ul>
+        <h3 v-else>You doesn't have any requests till now!</h3>
+      </base-card>
+      </section>
+  </div>
 </template>
 
 <script>
@@ -48,10 +50,11 @@ export default {
         this.error = error.message || 'Something has failed'
       }
       this.isLoading = false
-    }
-   },
-   handleError(){
+    },
+    
+    handleError(){
     this.error = null
+    }
    }
 }
 </script>

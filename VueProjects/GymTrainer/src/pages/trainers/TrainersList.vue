@@ -1,11 +1,12 @@
 <template>
-    <base-dialog :show="!!error" title="An error occured" @close="handleError">
-    <p>{{ error }}</p>
-    </base-dialog>
-    <section>
-         <trainers-filter @change-filter="setFilters"></trainers-filter>
-    </section>
-    <section>
+    <div>
+        <base-dialog :show="!!error" title="An error occured" @close="handleError">
+        <p>{{ error }}</p>
+        </base-dialog>
+        <section>
+            <trainers-filter @change-filter="setFilters"></trainers-filter>
+        </section>
+        <section>
         <base-card>
         <div class="controls">
             <base-button mode="outline" @click="loadTrainers(true)">Refresh</base-button>
@@ -23,7 +24,8 @@
         </ul>
         <p v-else>No Coaches</p>
        </base-card>
-    </section>
+     </section>
+    </div>
 </template>
 
 <script>
@@ -78,6 +80,9 @@ export default {
         setFilters(updatedFilters){
           this.activeFilters = updatedFilters
         },
+        handleError(){
+            this.error = null
+        },
        async loadTrainers(refresh = false){
             this.isLoading = true
             try {
@@ -86,9 +91,6 @@ export default {
                this.error = error.message || 'Something went wrong!'
             }
             this.isLoading = false
-        },
-        handleError(){
-            this.error = false
         }
     },
 }
