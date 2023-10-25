@@ -26,9 +26,9 @@
     },
     methods: {
         getImagePath() {
-      const petIdentifier = this.id; // You can use name or any other unique identifier
-      const imageFileName = `/${petIdentifier}.jpg`; // Adjust the file extension as needed
-      return `${imageFileName}`; // Update the path as per your project structure
+      const petIdentifier = this.id;
+      const imageFileName = `/${petIdentifier}.jpg`;
+      return `${imageFileName}`;
     },
     }
   }

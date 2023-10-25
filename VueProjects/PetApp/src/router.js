@@ -9,8 +9,8 @@ const router = createRouter({
     {path: '/pets',component: PetsList},
     {path: '/pets/:id',component: PetsDetails,
        props:true,children: [
-         { path: 'contact',component: PetsContact } //trainer/tID/contact
-       ]},
+         { path: 'contact',component: PetsContact } //pets/pId/contact
+   ]},
   ]
 })
 

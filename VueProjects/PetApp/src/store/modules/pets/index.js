@@ -12,7 +12,7 @@ export default {
                 name: 'Max',
                 years: 5,
                 breed: ['German Shepherd'],
-                image: '/a.webp' ,
+                image: 'a' ,
                 description: 'Perfect dog for breeding!',
 
             },
@@ -21,7 +21,7 @@ export default {
                 name: 'Roni',
                 years: 5,
                 breed: ['Shepherd'],
-                image: '',
+                image: 'b',
                 description: 'He is beats every dog!',
 
             }
