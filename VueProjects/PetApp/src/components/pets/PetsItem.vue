@@ -37,13 +37,11 @@
   <style scoped>
   li {
     margin: 1rem 0;
-    border: 2px solid black;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     text-align: center; /* Center text within the card */
-    width: 650px;
 
   }
   
@@ -60,6 +58,7 @@
   .pet-image {
     width: 100%;
     height: auto; /* Maintain the image's aspect ratio */
+    border-radius: 20px;
   }
   
   .pet-name {

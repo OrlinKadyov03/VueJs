@@ -11,7 +11,7 @@ export default {
                 id: 'p1',
                 name: 'Max',
                 years: 5,
-                breed: ['German Shepherd'],
+                breed: ['germanshepherd'],
                 image: 'a' ,
                 description: 'Perfect dog for breeding!',
 
@@ -22,7 +22,7 @@ export default {
                 years: 5,
                 breed: ['Shepherd'],
                 image: 'b',
-                description: 'He is beats every dog!',
+                description: 'He beats every dog!',
 
             }
         ]
