@@ -2,11 +2,11 @@
     <base-card>
       <li>
         <div class="actions">
-          <h3 class="pet-name">{{ name }}</h3>
+          <h3 class="pet-name">Pet name: {{ name }}</h3>
         </div>
         <router-link :to="detailsLink" class="router-link-container">
           <div class="image-container">
-            <img src="../../../a.webp" class="pet-image" alt="Pet Image">
+            <img :src="getImagePath()" class="pet-image" alt="Pet Image">
           </div>
         </router-link>
     </li>
@@ -15,14 +15,21 @@
   
   <script>
   export default {
-    props: ['id', 'name', 'years', 'breed', 'description'],
+    props: ['id', 'name', 'years', 'breed','image', 'description'],
     computed: {
         contactLink(){
             return "/pets" +  "/" + this.id +  "/contact"
         },
         detailsLink(){
             return "/pets" +  "/" + this.id
-         }
+         },
+    },
+    methods: {
+        getImagePath() {
+      const petIdentifier = this.id; // You can use name or any other unique identifier
+      const imageFileName = `/${petIdentifier}.jpg`; // Adjust the file extension as needed
+      return `${imageFileName}`; // Update the path as per your project structure
+    },
     }
   }
   </script>
@@ -30,13 +37,13 @@
   <style scoped>
   li {
     margin: 1rem 0;
-    border: 1px solid #424242; /* Adjust the border width here */
-    border-radius: 12px;
+    border: 2px solid black;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     text-align: center; /* Center text within the card */
+    width: 650px;
 
   }
   
