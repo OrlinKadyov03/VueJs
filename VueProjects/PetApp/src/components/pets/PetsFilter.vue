@@ -9,7 +9,7 @@
         <label for="cat">Cat</label>
     </span>
     <div class="regi">
-        <base-button link to="/Register">Register to add your pet</base-button>
+        <base-button link to="/Register">Register your pet</base-button>
     </div>
 </base-card>
 </template>
