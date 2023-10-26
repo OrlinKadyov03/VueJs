@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Pets List</h2>
+        <pets-filter @change-filter="setFilter"></pets-filter>
         <ul>
             <pets-item v-for="pet in filteredPets" :key="pet.id"  :id="pet.id"
             :name="pet.name"
@@ -14,18 +14,43 @@
 
 <script>
 import PetsItem from './PetsItem.vue'
+import PetsFilter from './PetsFilter.vue'
 export default {
     components: {
-        PetsItem
+        PetsItem,
+        PetsFilter
+    },
+    data(){
+      return {
+        activeFilters: {
+            dog: true,
+            cat: true
+        }
+      }
     },
     computed: {
         filteredPets(){
-           return this.$store.getters['pets/pets']
+           const pets = this.$store.getters['pets/pets']
+           return pets.filter(pets => {
+            if(this.activeFilters.dog && pets.type.includes('dog')){
+                return true
+            }
+            if(this.activeFilters.cat && pets.type.includes('cat')){
+                return true
+            }
+            return false
+           })
         },
         hasPets(){
            return this.$store.getters['pets/hasPets']
         }
+    },
+    methods:{
+        setFilter(updatedFilters){
+          this.activeFilters = updatedFilters
+        }
     }
+
 }
 </script>
 

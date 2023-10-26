@@ -2,6 +2,7 @@
     <div>
      <section>
      <base-card>
+       <h3 v-for="pet in petType" :key="pet">Pet type: {{ pet }}</h3>
        <h3>Pet name: {{ petName }}</h3>
        <h4>Pet age: {{ petAge }}</h4>
      </base-card>
@@ -37,6 +38,9 @@ export default {
     },
     petAge(){
         return this.selectedPet.years
+    },
+    petType(){
+        return this.selectedPet.type
     },
     contactLink(){
         return '/pets' + '/' + this.id + '/contact'
