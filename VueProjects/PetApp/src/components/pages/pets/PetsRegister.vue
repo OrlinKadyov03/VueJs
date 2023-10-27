@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h2>Register</h2>
         <pets-form></pets-form>
     </div>
 </template>
