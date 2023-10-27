@@ -1,6 +1,6 @@
 <template>
     <div>
-        <pets-form></pets-form>
+        <pets-form @save-data="submitForm"></pets-form>
     </div>
 </template>
 
@@ -9,6 +9,12 @@ import PetsForm from '../../../components/pets/PetsForm.vue'
 export default {
  components: {
     PetsForm
+ },
+ methods:{
+    submitForm(data){
+        this.$store.dispatch('pets/registerPet',data)
+        this.$router.replace('/pets')
+    }
  }
 }
 </script>

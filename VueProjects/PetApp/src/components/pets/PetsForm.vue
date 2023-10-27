@@ -74,8 +74,7 @@ export default {
         image: this.image,
         description: this.description
       }
-
-      console.log('Formdata',formData)
+       this.$emit('save-data',formData)
     }
   }
 }
