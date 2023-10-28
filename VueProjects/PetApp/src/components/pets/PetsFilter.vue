@@ -9,7 +9,7 @@
         <label for="cat">Cat</label>
     </span>
     <div class="regi">
-        <base-button link to="/Register">Register your pet</base-button>
+        <base-button v-if="!isPets" link to="/Register">Register your pet</base-button>
     </div>
 </base-card>
 </template>
@@ -35,6 +35,11 @@ export default {
             }
             this.filters = updatedFilters
             this.$emit('change-filter',updatedFilters)
+        }
+    },
+    computed:{
+      isPets(){
+          return this.$store.getters['pets/isPets']
         }
     }
 }

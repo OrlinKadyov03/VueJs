@@ -1,7 +1,7 @@
 export default {
     registerPet(context,data){
         const formData = {
-            id: 'p4',
+            id: context.rootGetters.userId,
             name: data.name,
             years: data.years,
             type: data.type,
