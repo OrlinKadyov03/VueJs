@@ -3,41 +3,47 @@
     <form @submit.prevent="submitForm">
         <div class="form-control">
             <label for="name">Name:</label>
-            <input type="text" id="name" v-model.trim="name">
+            <input type="text" id="name" v-model.trim="name.val">
+            <p v-if="!name.isValid">Please enter pet name</p>
         </div>
         <div class="form-control">
             <label for="age">Age:</label>
-            <input type="number" id="age" v-model.number="age">
+            <input type="number" id="age" v-model.number="age.val">
+            <p v-if="!age.isValid">Please enter pet age</p>
         </div>
         <div class="form-control">
             <h3>Type of Animal:</h3>
             <div>
-              <input type="checkbox" id="dog" value="dog" v-model="type">
+              <input type="checkbox" id="dog" value="dog" v-model="type.val">
               <label for="dog">Dog</label>
             </div>
             <div>
-                <input type="checkbox" id="cat" value="cat" v-model="type" >
+                <input type="checkbox" id="cat" value="cat" v-model="type.val" >
                 <label for="cat">Cat</label>
             </div>
+            <p v-if="!type.isValid">Please choose what pet you have</p>
         </div>
         <div class="form-control">
             <h3>Breed:</h3>
             <div>
-              <input type="checkbox" id="germanshepherd" value="germanshepherd" v-model="breed">
+              <input type="checkbox" id="germanshepherd" value="germanshepherd" v-model="breed.val">
               <label for="germanshepherd">German Shepherd</label>
             </div>
             <div>
-                <input type="checkbox" id="stray" value="stray" v-model="breed" >
+                <input type="checkbox" id="stray" value="stray" v-model="breed.val" >
                 <label for="stray">Stray</label>
             </div>
+            <p v-if="!breed.isValid">Please choose your pet breed</p>
         </div>
         <div class="form-group">
             <label for="petImage">Pet Image:</label>
             <input type="file" id="petImage" name="petImage" accept="image/*" @change="handleImageUpload">
+            <p v-if="!image.isValid">Please insert an image</p>
         </div>
         <div class="form-control">
            <label for="description">Description:</label>
-             <textarea name="description" id="description" rows="5" v-model.trim="description"></textarea>
+             <textarea name="description" id="description" rows="5" v-model.trim="description.val"></textarea>
+             <p v-if="!description.isValid">Please fill the description</p>
         </div>
         <base-button>Register</base-button>
     </form>
@@ -48,12 +54,30 @@
 export default {
   data() {
     return {
-      name: '',
-      age:'',
-      type: [],
-      breed: [],
-      image: null,
-      description:'',
+      name: {
+       val: '',
+       isValid: true
+      },
+      age:{
+        val: '',
+        isValid: true
+      },
+      type: {
+        val: [],
+        isValid: true
+      },
+      breed: {
+        val: [],
+        isValid: true
+      },
+      image: {
+        val: null,
+        isValid: true
+      },
+      description: {
+        val: '',
+        isValid: true
+      },
       formIsValid: false
     }
   },
@@ -95,13 +119,19 @@ export default {
     },
     submitForm(){
 
+      this.validateForm()
+
+      if(!this.formIsValid){
+        return
+      }
+
       const formData = {
-        name: this.name,
-        age: this.age,
-        type: this.type,
-        breed: this.breed,
-        image: this.image,
-        description: this.description
+        name: this.name.val,
+        age: this.age.val,
+        type: this.type.val,
+        breed: this.breed.val,
+        image: this.image.val,
+        description: this.description.val
       }
        this.$emit('save-data',formData)
     }
