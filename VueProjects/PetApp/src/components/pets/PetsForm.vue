@@ -49,14 +49,42 @@ export default {
   data() {
     return {
       name: '',
-      age: '',
+      age:'',
       type: [],
       breed: [],
       image: null,
-      description: ''
+      description:'',
+      formIsValid: false
     }
   },
   methods: {
+    validateForm(){
+      this.formIsValid = true
+      if(this.name.val === ''){
+        this.name.isValid = false
+        this.formIsValid = false
+      }
+      if(!this.age.val || this.age.val < 0 ){
+        this.age.isValid = false
+        this.formIsValid = false
+      }
+      if(this.type.val.length === 0){
+        this.type.isValid = false
+        this.formIsValid = false
+      }
+      if(this.breed.val.length === 0){
+        this.breed.isValid = false
+        this.formIsValid = false
+      }
+      if(this.image.val === null){
+        this.image.isValid = false
+        this.formIsValid = false
+      }
+      if(this.description.val === ''){
+        this.description.isValid = false
+        this.formIsValid = false
+      }
+    },
     openImageUpload() {
       // Trigger the file input element
       document.getElementById('petImage').click();
@@ -66,6 +94,7 @@ export default {
       this.image = file; // Store the file in the 'image' data property
     },
     submitForm(){
+
       const formData = {
         name: this.name,
         age: this.age,

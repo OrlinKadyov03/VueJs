@@ -8,7 +8,7 @@ const store = createStore({
     },
     state(){
         return {
-            userId: 't3'
+            userId: 'p3'
         }
     },
     getters: {
