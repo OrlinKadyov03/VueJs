@@ -18,10 +18,10 @@
     props: ['id', 'name', 'years', 'breed','image', 'description'],
     computed: {
         contactLink(){
-            return "/pets" +  "/" + this.id +  "/contact"
+            return "/pets/" +  this.id +  "/contact"
         },
         detailsLink(){
-            return "/pets" +  "/" + this.id
+            return "/pets/"  + this.id
          },
     },
     methods: {

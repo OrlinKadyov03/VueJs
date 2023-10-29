@@ -50,7 +50,7 @@ a:active,
 button:hover,
 button:active {
   background-color:rgb(238, 102, 52);
-  border-color: rgb(238, 102, 52);;
+  border-color: 270041(238, 102, 52);;
 }
 
 .flat {

@@ -9,8 +9,11 @@
    </section>
    <section>
     <base-card>
+    <header>
      <h3>Interested, message me!</h3>
      <base-button link :to="contactLink">Contact</base-button>
+    </header>
+    <router-view></router-view>
     </base-card>
    </section>
    <section>
@@ -43,7 +46,7 @@ export default {
         return this.selectedPet.type
     },
     contactLink(){
-        return '/pets' + '/' + this.id + '/contact'
+        return '/pets/' + this.id + '/contact'
     },
     breed(){
         return this.selectedPet.breed
