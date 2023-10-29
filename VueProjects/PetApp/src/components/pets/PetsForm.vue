@@ -59,7 +59,7 @@ export default {
        isValid: true
       },
       age:{
-        val: '',
+        val: null,
         isValid: true
       },
       type: {
@@ -130,7 +130,7 @@ export default {
 
       const formData = {
         name: this.name.val,
-        age: this.age.val,
+        years: this.age.val,
         type: this.type.val,
         breed: this.breed.val,
         image: this.image.val,
