@@ -6,7 +6,7 @@ import messageModule from './modules/messages/index.js'
 const store = createStore({
     modules: {
      pets: petsModule,
-     message: messageModule
+     messages: messageModule
     },
     state(){
         return {
