@@ -35,6 +35,16 @@ export default {
                 this.formIsValid = false
                 return
             }
+
+            this.$store.dispatch('messages/contactPets',{
+                email: this.email,
+                message: this.message,
+                phoneNumber: this.phoneNumber,
+                petsId: this.$route.params.id
+
+            })
+
+            this.$router.replace('/pets')
         }
     }
 }
