@@ -1,5 +1,8 @@
 <template>
     <div>
+      <base-dialog :show="!!error" title="An error occured" @close="handleError">
+       {{ error }}
+      </base-dialog>
       <base-card>
         <pets-filter @change-filter="setFilter"></pets-filter>
         <div class="regi">
@@ -36,7 +39,8 @@ export default {
             dog: true,
             cat: true
         },
-        isLoading: false
+        isLoading: false,
+        error: null
       }
     },
     computed: {
@@ -65,8 +69,15 @@ export default {
         },
         async loadPets(){
           this.isLoading = true
-         await this.$store.dispatch('pets/loadPets')
+          try{
+            await this.$store.dispatch('pets/loadPets')
+          } catch(error){
+            this.error = error.message || 'Failed to Fetch'
+          }
           this.isLoading = false
+        },
+        handleError(){
+          this.error = null
         }
     },
     created(){
