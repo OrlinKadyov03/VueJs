@@ -24,5 +24,29 @@ export default {
             ...formData,
             id: userId
         })
+    },
+    async loadPets(context){
+       const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/pets.json`)
+       const responseData = await response.json()
+
+       if(!response.ok){
+        //error
+       }
+       const pets = []
+
+       for(const key in responseData){
+        const pet = {
+            id: key,
+            name: responseData[key].name,
+            years: responseData[key].years,
+            type: responseData[key].type,
+            breed: responseData[key].breed,
+            image: responseData[key].image,
+            description: responseData[key].description
+        }
+        pets.push(pet)
+       }
+
+       context.commit('setPets',pets)
     }
 }
