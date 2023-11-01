@@ -8,10 +8,6 @@
         <input type="checkbox" id="cat" checked @change="setFilters">
         <label for="cat">Cat</label>
     </span>
-    <div class="regi">
-        <base-button v-if="!isPets" link to="/Register">Register your pet</base-button>
-        <base-button @click="loadPets">Refresh</base-button>
-    </div>
 </base-card>
 </template>
 
@@ -36,18 +32,7 @@ export default {
             }
             this.filters = updatedFilters
             this.$emit('change-filter',updatedFilters)
-        },
-        loadPets(){
-          this.$store.dispatch('pets/loadPets')
         }
-    },
-    computed:{
-      isPets(){
-          return this.$store.getters['pets/isPets']
-        }
-    },
-    created(){
-      this.loadPets()
     }
 }
 </script>
