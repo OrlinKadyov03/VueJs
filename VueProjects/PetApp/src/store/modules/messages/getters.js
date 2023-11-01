@@ -1,8 +1,9 @@
 export default {
-    messages(state){
-        return state.messages
+    messages(state,_,_2,rootGetters){
+        const petId = rootGetters.userId
+        return state.messages.filter(req => req.petId === petId)
     },
-    hasMessages(state){
-        return state.messages && state.messages.length > 0
+    hasMessages(_,getters){
+        return getters.messages && getters.messages.length > 0
     }
 }
