@@ -10,7 +10,7 @@ const store = createStore({
     },
     state(){
         return {
-            userId: 'p4'
+            userId: 'p3'
         }
     },
     getters: {
