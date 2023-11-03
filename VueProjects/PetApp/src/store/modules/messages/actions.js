@@ -1,7 +1,7 @@
 export default {
    async contactPets(context,payload){
         const requestsData = {
-            userEmail: payload.userEmail,
+            userEmail: payload.email,
             message: payload.message,
             phoneNumber: payload.phoneNumber
         }
@@ -41,7 +41,7 @@ export default {
             const request = {
                 id: key,
                 petsId: petsId,
-                userEmail: responseData[key].userEmail,
+                email: responseData[key].userEmail,
                 message: responseData[key].message,
                 phoneNumber: responseData[key].phoneNumber
             }
