@@ -4,5 +4,8 @@ export default {
     },
     setPets(state,payload){
         state.pets = payload
+    },
+    setFetchTimeStamp(state){
+        state.lastFetch = new Date().getTime()
     }
 }

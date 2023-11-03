@@ -7,7 +7,7 @@
         <pets-filter @change-filter="setFilter"></pets-filter>
         <div class="regi">
           <base-button v-if="!isPets && !isLoading" link to="/Register">Register your pet</base-button>
-          <base-button @click="loadPets">Refresh</base-button>   
+          <base-button @click="loadPets(true)">Refresh</base-button>   
         </div>
         <div v-if="isLoading">
           <base-spinner></base-spinner>
@@ -67,10 +67,10 @@ export default {
         setFilter(updatedFilters){
           this.activeFilters = updatedFilters
         },
-        async loadPets(){
+        async loadPets(refresh = false){
           this.isLoading = true
           try{
-            await this.$store.dispatch('pets/loadPets')
+            await this.$store.dispatch('pets/loadPets',{forceRefresh: refresh})
           } catch(error){
             this.error = error.message || 'Failed to Fetch'
           }

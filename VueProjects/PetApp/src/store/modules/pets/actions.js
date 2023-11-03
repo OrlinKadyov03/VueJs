@@ -25,7 +25,12 @@ export default {
             id: userId
         })
     },
-    async loadPets(context){
+    async loadPets(context,payload){
+
+       if(!payload.forceRefresh && !context.getters.shouldUpdate){
+        return
+       }
+        
        const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/pets.json`)
        const responseData = await response.json()
 

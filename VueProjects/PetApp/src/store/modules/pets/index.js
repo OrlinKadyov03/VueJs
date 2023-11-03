@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state(){
     return {
+        lastFetch: null,
         pets: [
             {
                 id: 'p1',
