@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     AddOne(){
-      this.$store.dispatch('increase', { value: 10 })
+      this.$store.dispatch('numbers/increase', { value: 10 })
     }
   },
   computed: {
