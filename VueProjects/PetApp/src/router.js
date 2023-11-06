@@ -4,6 +4,7 @@ import PetsDetails from './components/pets/PetsDetails.vue'
 import PetsContact from './components/pets/PetsContact.vue'
 import PetsRegister from './components/pages/pets/PetsRegister.vue'
 import PetsRequests from './components/pages/requests/PetRequests.vue'
+import UserAuth from './components/pages/auth/UserAuth.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,6 +16,7 @@ const router = createRouter({
          { path: 'contact',component: PetsContact } //pets/pId/contact
    ]},
     {path: '/register',component: PetsRegister},
+    {path: '/auth', component: UserAuth},
     {path: '/requests',component: PetsRequests}  
   ]
 })
