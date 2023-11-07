@@ -6,7 +6,9 @@
       <base-card>
         <pets-filter @change-filter="setFilter"></pets-filter>
         <div class="regi">
-          <base-button v-if="!isPets && !isLoading" link to="/Register">Register your pet</base-button>
+          <base-button v-if="!isLoggedIn" link to="/auth">Login to register your pet</base-button>
+          <base-button v-if="!isPets && !isLoading && isLoggedIn" link to="/Register">Register your pet</base-button>
+
           <base-button @click="loadPets(true)">Refresh</base-button>   
         </div>
         <div v-if="isLoading">
@@ -40,7 +42,7 @@ export default {
             cat: true
         },
         isLoading: false,
-        error: null
+        error: null,
       }
     },
     computed: {
@@ -61,6 +63,9 @@ export default {
         },
         isPets(){
           return this.$store.getters['pets/isPets']
+        },
+        isLoggedIn(){
+          return this.$store.getters.isAuthenticated
         }
     },
     methods:{
