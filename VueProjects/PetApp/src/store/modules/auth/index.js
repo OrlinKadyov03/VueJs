@@ -5,7 +5,9 @@ import actions from './actions.js'
 export default {
     state(){
         return {
-            userId: 'p3'
+            userId: null,
+            token: null,
+            tokenExpiration: null
         }
     },
     mutations,
