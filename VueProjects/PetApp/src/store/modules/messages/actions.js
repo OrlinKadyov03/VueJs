@@ -6,6 +6,7 @@ export default {
             phoneNumber: payload.phoneNumber
         }
 
+
        const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/requests/${payload.petsId}.json`,{
             method: 'POST',
             body: JSON.stringify(requestsData)
@@ -26,8 +27,9 @@ export default {
         context.commit('addMessages',requestsData)
     },
     async fetchMessages(context){
+        const token = context.rootGetters.token
         const petsId = context.rootGetters.userId
-        const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/requests/${petsId}.json`)
+        const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/requests/${petsId}.json?auth=` + token )
         const responseData = await response.json()
 
         if(!response.ok){

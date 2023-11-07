@@ -11,7 +11,8 @@ export default {
             description: data.description
         }
 
-        const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/pets/${userId}.json`,{
+        const token = context.rootGetters.token
+        const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/pets/${userId}.json?auth=` + token,{
             method: 'PUT',
             body: JSON.stringify(formData)
         })
@@ -30,7 +31,6 @@ export default {
        if(!payload.forceRefresh && !context.getters.shouldUpdate){
         return
        }
-        
        const response = await fetch(`https://petapp-88f07-default-rtdb.europe-west1.firebasedatabase.app/pets.json`)
        const responseData = await response.json()
 
