@@ -74,7 +74,8 @@ export default {
             }else {
             await this.$store.dispatch('signup',actionPayload)
             }
-
+            const redirectUrl = '/' + (this.$route.query.redirect || 'pets')
+            this.$router.replace(redirectUrl)
             }
             catch(err){
               this.error = new Error('Failed to authenticate')

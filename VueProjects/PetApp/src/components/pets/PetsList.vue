@@ -6,7 +6,7 @@
       <base-card>
         <pets-filter @change-filter="setFilter"></pets-filter>
         <div class="regi">
-          <base-button v-if="!isLoggedIn" link to="/auth">Login to register your pet</base-button>
+          <base-button v-if="!isLoggedIn" link to="/auth?redirect=Register">Login to register your pet</base-button>
           <base-button v-if="!isPets && !isLoading && isLoggedIn" link to="/Register">Register your pet</base-button>
 
           <base-button @click="loadPets(true)">Refresh</base-button>   
