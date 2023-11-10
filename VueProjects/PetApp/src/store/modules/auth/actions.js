@@ -89,6 +89,6 @@ export default {
     },
     autoLogout(context){
         context.dispatch('logout')
-        context.commit('setAutoLogouttt')
+        context.commit('setAutoLogout')
     }
 }
